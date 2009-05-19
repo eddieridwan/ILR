@@ -1,0 +1,28 @@
+<% 
+	# Parameters: @showbuttons, @order
+%>
+<div class="cart-title">
+    Cart <span class="cart-title-comment">(Australian dollars)</span>
+</div>
+<table>
+	<%= render(:partial => "cart_item" , :collection => cart.items, 
+			:locals => {:read_only => cart.read_only}) %>
+    <tr class="total-line">
+        <td colspan="3">Sub-total</td>
+        <td class="total-cell"><%= number_to_currency(cart.subtotal_price) %></td>
+    </tr>
+	<% if @order.calc_shipping_cost(cart) != nil %>
+		<tr class="total-line">
+			<td colspan="3">Shipping</td>
+			<td class="item-price"><%= number_to_currency(@order.calc_shipping_cost(cart)) %></td>
+		</tr>
+		<tr class="total-line">
+			<td colspan="3">Total</td>
+			<td class="total-cell"><%= number_to_currency(@order.calc_order_total(cart)) %></td>
+		</tr>
+	<% end %>
+</table>
+<% hidden_div_if(!@showbuttons, :class => "cart-buttons" ) do %>
+	<%= button_to "Empty cart" , :action => :empty_cart %>
+	<%= button_to "Checkout" , :action => 'checkout' %>
+<% end %>

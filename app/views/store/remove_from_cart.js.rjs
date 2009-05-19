@@ -1,0 +1,10 @@
+page.replace_html("cart", :partial => "cart", :object => @cart, 
+                  :locals => {:showbuttons => @showbuttons}) unless @cart.total_items == 0
+ 
+if @cart.total_items == 0
+  page[:cart].visual_effect :blind_up
+elsif @current_item.quantity > 0
+  page[:current_item].visual_effect :highlight,
+                                    :startcolor => "#FF8888",
+                                    :endcolor => "#441111"
+end

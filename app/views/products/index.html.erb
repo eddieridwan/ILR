@@ -1,0 +1,43 @@
+<div id="product-list">
+    <h1>Listing products</h1>
+    <table cellpadding="5" cellspacing="0">
+        <tr>
+            <th>
+                Image
+            </th>
+            <th>
+                Productid
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Publisher
+            </th>
+        </tr>
+        <% for product in @products %>
+        <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>">
+            <td>
+    			<%= image_tag(product.image, :class => "list-image", :title => product.title) %>
+<!--                <img class="list-image" src="<%= product.image %>" /> -->
+            </td>
+            <td>
+                <%=h product.productid %>
+            </td>
+            <td width="60%">
+                <span class="list-title" ><%= h(product.title) %></span><br />
+				<%= h(truncate(product.description, 80)) %>
+            <td>
+                <%=h product.publisher %>
+            </td>
+            <td class="list-actions">
+                <%= link_to 'Show', product %><br>	
+                <%= link_to 'Edit', edit_product_path(product)  %><br>
+                <%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+</div>
+<br/>
+<%= link_to 'New product', new_product_path %>

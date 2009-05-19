@@ -1,0 +1,12 @@
+<div id="product-details">
+    <% product = @product %>
+	<div id="entry">
+		<%= render(:partial => "shop_entry", :locals => {:product => product, :moreinfo => false}) %> 
+	</div>
+    <div class="detailed-description">
+        <%= product.product_details %>
+    </div>
+	<div class="checkout-links">
+		<%= link_to "Back to Shop", :action => "shop" %>
+	</div>
+</div>

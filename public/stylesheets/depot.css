@@ -1,0 +1,432 @@
+/* Global styles */
+
+/* START:notice */
+#notice {
+  border: 2px solid red;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #f0f0f0;
+  font: bold smaller sans-serif;
+}
+/* END:notice */
+
+/* Styles for admin/list */
+
+#product-list .list-title {
+	color:        #244;
+	font-weight:  bold;
+	font-size:    larger;
+}
+
+#product-list .list-image {
+  width:        60px;
+  height:       70px;
+}
+
+
+#product-list .list-actions {
+  font-size:    x-small;
+  text-align:   right;
+  padding-left: 1em;
+}
+
+#product-list .list-line-even {
+  background:   #e0f8f8;
+}
+
+#product-list .list-line-odd {
+  background:   #f8b0f8;
+}
+
+
+/* Styles for main page of store */
+
+.logo {
+  margin-left: 10px;
+  background: white;
+}
+
+#banner {
+  background: #9c9; 
+  background-image: url(/images/gradient-7TUK6.png);
+  background-repeat: repeat-y; 
+  padding-top: 10px;
+  padding-bottom: 5px;
+/*  border-bottom: 2px solid;*/
+  color: #282;
+  text-align: center;
+}
+
+#banner .banner-heading{
+  font: small-caps 40px/40px "Times New Roman", serif;	
+}
+
+#banner .menubar {
+}
+
+
+#banner .banner-img {
+  float: right;
+  width: 70px;
+  margin-right: 10px;
+}
+
+#columns {
+  background: #141;
+}
+
+#main {
+  margin-left: 15em;
+/*  padding-top: 4ex; */
+  padding-left: 2em;
+  background: white;
+  overflow:hidden;
+}
+
+#side {
+  float: left;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-bottom: 1em;
+  padding-right: 1em;
+  width: 16em;
+  background: #141;
+}
+
+#side a {
+  color: #bfb;
+  font-size: small;
+}
+
+h1 {
+  font:  150% sans-serif;
+  color: #226;
+  border-bottom: 3px dotted #77d;
+}
+
+h2 {
+  font-size: 125%;
+}
+
+/* Other elements in main store page */
+
+#footer {
+  background: #9c9;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top: 2px solid;
+  color: #282;
+  text-align: center;
+  clear: both;
+}
+
+.copyright {
+  padding-top: 5px;
+}
+
+/* An entry in the store catalog */
+
+#store {
+  font-family: verdana, garamond, sans-serif;
+  font-size: small;	
+}
+#store  .title {
+  font-size: 120%;
+}
+
+#entry img {
+  width: 75px;
+}
+
+#entry {
+  border-bottom: 1px dotted #77d;
+  clear: both;
+  margin-top: 10px;
+}
+
+#entry h3 {
+ font: 125% sans-serif;
+ margin-bottom: 2px;
+ margin-top: 0px;
+ color: #226;
+}
+
+#entry p {
+ margin-top: 0px; 
+ margin-bottom: 0.8em; 
+}
+
+#entry .price-line {
+  margin-top: 5px;
+  margin-bottom: 5px;	
+}
+
+#entry .add-to-cart {
+  position: relative;
+}
+
+#entry  .price {
+  color: #44a;
+  font-weight: bold;
+  margin-right: 2em;
+}
+
+#entry .entry-img {
+  width: 75px;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-top: 0px;
+}
+
+#entry .entry-details {
+  margin-bottom: 10px;
+  margin-left: 85px;
+}
+
+
+/* START:inline */
+#entry form, #entry form div {
+  display: inline;
+}
+/* END:inline */
+
+/* START:cart */
+/* Styles for the cart in the main page and the sidebar */
+
+.cart-title {
+  font-size: 120%;
+  font-weight: bold; 
+  padding-bottom: 3px;
+}
+
+.cart-title .cart-title-comment {
+  font-weight: normal;
+  font-size: 80%; 
+}
+.item-price, .total-line {
+  text-align: right;	
+}
+
+.total-line .total-cell {
+  font-weight: bold;
+  border-top: 1px solid #595;
+}
+
+
+/* Styles for the cart in the sidebar */
+
+#cart {
+/*  margin-top: 1em; */
+}
+#cart, #cart table {
+  font-size: 80%;
+  color:     white;
+}
+
+#cart table {
+  border-top:    1px dotted #595;
+  border-bottom: 1px dotted #595;
+  margin-bottom: 10px;
+}
+
+#cart form {
+  padding-bottom: 2px;
+}
+
+#cart .item-quantity {
+  width: 2em;
+}
+
+#cart .cart-buttons * {
+  display: inline;
+}
+
+#cart .remove-tag {
+  margin: 0px;
+  padding: 0px;
+}
+
+#cart .remove-tag * {
+  display: inline;
+}
+
+/* END:cart */
+
+
+/* The error box */
+
+.fieldWithErrors {
+	padding: 2px;
+	background-color: #EEFFEE;
+	display: inline;
+}
+
+.fieldWithErrors * {
+	background-color: red;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* Contact page */
+
+#contact .image {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+/* Home page elements */
+
+#welcome {
+	margin-bottom: 40px;
+}
+
+#quiz {
+	border-top: 1px dotted;
+	border-top-color: #77d;
+	overflow:hidden;
+}
+
+#quiz .image {
+	float: right;
+	width: 400px;
+	margin-left: 10px;
+	text-align: center;
+	padding-bottom: 32767px; /* to force column to have same height as other column */
+	margin-bottom: -32767px; 
+}
+
+#quiz .image, #quiz .quiz-main {
+	margin-top: 20px;
+}
+
+/* Product details page */
+
+#product-details {
+  font-family: verdana, garamond, sans-serif;
+  font-size: small;		
+  margin-bottom: 10px;
+}
+
+/* Privacy page */
+
+#privacy {
+  margin-bottom: 10px;
+}
+
+/* Styles for order form */
+
+.depot-form {
+/*	height: 500px; */
+}
+
+.depot-form fieldset, #order-review fieldset {
+    background: #efe;
+} 
+
+.depot-form legend, #order-review legend, #order-review .subheading {
+    color: #dfd;
+    background: #141;
+    font-family: sans-serif;
+    padding: 0.2em 1em;
+} 
+
+.depot-form label {
+    width: 13em;
+    float: left;
+	clear: left;
+    text-align: right;
+    padding-top: 0.2em;
+    margin-right: 0.1em;
+    display: block;
+} 
+
+.depot-form select, .depot-form textarea, .depot-form input {
+    margin-left: 0.5em;
+} 
+
+.depot-form .submit {
+	text-align: center; 
+	margin-bottom: 5px;
+	margin-left: 13.4em;
+	margin-top: 15px;
+} 
+
+.depot-form div {
+    margin: 0.5em 0;
+}
+
+.depot-form .explanation {
+	margin-left: 3em;
+	margin-bottom: 3em;
+}
+
+.depot-form .card-image {
+	margin-left: 13em;
+	margin-top: 10px;
+}
+
+.depot-form .cvv {
+	font-size: x-small;
+}
+
+.checkout-buttons * {
+	display: inline;
+}
+
+.checkout-links {
+	margin-top: 5px;
+	margin-bottom: 20px;
+}
+
+/* Order review page */
+
+#order-review .review-heading {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+
+#order-review .review-heading * {
+	display: inline;
+	margin-right: 10px;
+}
+
+#order-review .review-label {
+	width: 13em;
+	text-align: right;
+	padding-right: 10px;
+}
+
+#order-review .order-button {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}

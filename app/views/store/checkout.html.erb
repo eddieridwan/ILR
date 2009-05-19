@@ -1,0 +1,53 @@
+<div class="depot-form">
+    <%= error_messages_for 'order' %>
+    <% form_for :order, :url => { :action => :checkout_shipping } do |form| %>
+    <fieldset>
+        <legend>
+            Please Enter Delivery Address [Step 1 of 4]
+        </legend>
+        <div>
+            <%= form.label :first_name, "First Name:" %>
+            <%= form.text_field :first_name, :size => 40 %>
+        </div>
+        <div>
+            <%= form.label :last_name, "Last Name:" %>
+            <%= form.text_field :last_name, :size => 40 %>
+        </div>
+        <div>
+            <%= form.label :street_address_1, "Street Address:" %>
+            <%= form.text_field :street_address_1, :size => 40 %>
+        </div>
+        <div>
+            <%= form.label :street_address_2, "Street Address (contd) :" %>
+            <%= form.text_field :street_address_2, :size => 40 %>
+        </div>
+        <div>
+            <%= form.label :city, "City/Suburb:" %>
+            <%= form.text_field :city, :size => 40 %>
+        </div>
+        <div>
+            <%= form.label :state, "State:" %>
+            <%= form.text_field :state, :size => 40 %>
+        </div>
+        <div>
+            <%= form.label :postcode, "Postcode/Zip:" %>
+            <%= form.text_field :postcode, :size => 10 %>
+        </div>
+        <div>
+            <%= form.label :country, "Country:" %>
+            <%=	
+            form.select :country,
+            Order::COUNTRY_TYPES,
+            :prompt => "&lt;Select a country&gt;" %>
+        </div>
+        <div>
+            <%= form.label :email, "E-Mail:" %>
+            <%= form.text_field :email, :size => 40 %>
+        </div>
+        <%= submit_tag "Shipping Method &gt;" , :class => "submit" %>
+    </fieldset>
+    <% end %>
+	<div class="checkout-links">
+		<%= link_to "Continue Shopping", :action => "shop" %>
+	</div>
+</div>

@@ -1,0 +1,40 @@
+<div class="depot-form">
+    <%= error_messages_for 'order' %>
+    <% form_for :order, :url => { :action => :checkout_review } do |form| %>
+    <fieldset>
+        <legend>
+            Please Select Shipping Method [Step 2 of 4]
+        </legend>
+        <div class="explanation">
+            <p>Select one of the shipping methods available for 
+				<%= Order::COUNTRY_TYPES.rassoc(@order.country).at(0) %>.<p/>
+			<% if @shipping_type == "Domestic" %> 
+			<div>
+				<p>Regular post parcel to metropolitan areas normally take 2-3 business days.</p>
+				<p>Express post parcel to places in the Express Post network take 1 business day.</p>
+			</div>
+			<% else %>
+			<div>
+				<p>Delivery times for standard airmail from Australia depend on mail delivery in the destination country. 
+					No tracking is available with this service. 
+					Delivery to major cities in North America typically takes 4-6 work days.</p>
+				<p>Shipping by courier uses the Australia Post Express Courier International service. 
+					This is a trackable service. Delivery times depend on the destination country.
+					Delivery to major centres in North America typically takes 2-4 work days.</p>
+			</div>
+			<% end %>
+        </div>
+		<div>
+            <%= form.label :shipping_method, "Shipping method:" %>
+			<% @shipping_options.each do |o| %>	
+				<%= radio_button(:order, :shipping_method, o.at(1)) %> <%= o.at(0) %>
+			<% end %>
+		</div>
+        <%= submit_tag "Review Order &gt;" , :class => "submit" %>
+   </fieldset>
+    <% end %>
+	<div class="checkout-links">
+		<%= link_to "&lt; Back", :action => "checkout" %> |
+		<%= link_to "Continue Shopping", :action => "shop" %>
+	</div>
+</div>

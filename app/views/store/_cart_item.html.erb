@@ -1,0 +1,22 @@
+<% if cart_item == @current_item %>
+  <tr id="current_item">
+<% else %>
+  <tr>
+<% end %>
+<% if read_only == false %>
+  <td class="remove-tag">
+	<% form_remote_tag :url => { :action => :remove_from_cart, :id => cart_item.product}, :html => { :action => url_for(:action => :remove_from_cart, :id => cart_item.product) } do -%>
+		<%= image_submit_tag("remove.jpg", {:title => "Remove 1 item"}) -%>
+	<% end -%>
+  </td>
+<% end %>
+<!--  
+	<%= link_to_remote "-", { :url => { :action => :remove_from_cart, :id => cart_item.product} }, { :href => url_for(:action => :remove_from_cart, :id => cart_item.product) } %>
+  <% form_for :cart_item, :url => { :action => :update_cart_item, :id => cart_item.product } do |form| %>
+	  <td class="item-quantity"><%= form.text_field(:quantity, :size => 1) %>&times; </td>
+  <% end %>
+-->
+  <td class="item-quantity"> <%=h cart_item.quantity %> x </td>
+  <td> <%=h cart_item.title %> </td>
+  <td class="item-price"> <%= number_to_currency(cart_item.price) %> </td>
+</tr>

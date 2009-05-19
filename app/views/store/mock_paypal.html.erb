@@ -1,0 +1,20 @@
+<div class="depot-form">
+	<% form_tag :action => :process_order do %>
+	<table>
+		<% @paypal_parameters.each do |key, value| %>
+			<tr>
+				<td><%= key %>: </td>
+				<td><input type="text" name="<%= key %>" value="<%= value %>"></td>
+			</tr>
+		<% end %>
+			<tr>
+				<td>payment_status:</td>
+				<td><input type="text" name="payment_status" value="Completed"></td>
+			</tr>
+	</table>
+		<input type="submit"" value="Pay Now">
+	<% end %>
+	<div class="checkout-links">
+		<%= link_to "Cancel", :action => "shop" %>
+	</div>
+</div>

@@ -1,0 +1,35 @@
+<% # Note that any white space is rendered in the text email message %>
+
+Indonesian Language Resources - Order Confirmation
+------------------------------------------------------
+Order Number: <%= @order.id %>
+Date Ordered: <%= @date_ordered.strftime("%d %B %Y") %>
+
+Products [<%= @order.line_items.size %> items]
+------------------------------------------------------
+<% @order.line_items.each do |li| -%>
+	<%= li.quantity.to_s %> x <%= li.product.title %> = <%= li.total_price %>
+<% end -%>
+------------------------------------------------------
+Sub-Total: <%= number_to_currency(@order.order_total - @order.shipping_cost) %>
+Shipping by <%= @order.shipping_method_text %>: <%= number_to_currency(@order.shipping_cost) %>
+Total: <%= number_to_currency(@order.order_total) %>
+
+Delivery Address
+------------------------------------------------------
+<%= @order.first_name %> <%= @order.last_name %>
+<%= @order.street_address_1 %>
+<% if @order.street_address_2.empty? == false -%>
+<%= @order.street_address_2 %>
+<% end -%>
+<%= @order.city %>
+<% if @order.state.empty? == false -%>
+<%= @order.state -%> <%= @order.postcode %>
+<% postcode_done = true -%>
+<% end -%>
+<%= Order::COUNTRY_TYPES.rassoc(@order.country).at(0) %> <%= @order.postcode if postcode_done.nil? %>
+
+Payment Method
+------------------------------------------------------
+Credit Card via PayPal 
+

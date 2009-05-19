@@ -1,0 +1,16 @@
+<div id="order-review">
+	<h1>
+    	Your order has been processed. 
+    </h1>
+	<div>
+		Thank you for your payment. Your transaction has been completed, 
+		and a receipt for your purchase has been emailed to you. If you purchased using your PayPal account, 
+		you may log into your account at www.paypal.com/au to view details of this transaction.		
+		The order confirmation shown below has also been emailed to <%= @order_confirmation.to %>.
+	</div>
+	<div>
+		<%= simple_format(@order_confirmation.body) %>
+	</div>
+
+	<%= button_to "Back to Shop", :action => "shop" %>
+</div>

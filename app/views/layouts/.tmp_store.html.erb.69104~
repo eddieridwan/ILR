@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>Indonesian Language Resources Online Store</title>
+        <%= stylesheet_link_tag "depot" , :media => "all" %>
+		<%= javascript_include_tag :defaults %>
+    </head>
+    <body id="store">
+        <div id="banner">
+            <img src="/images/indon.jpg" /><%= @page_title || "Indonesian Language Resources" %>
+        </div>
+        <div id="columns">
+            <div id="side">
+            	<% hidden_div_if(@cart.items.empty?, :id => "cart" ) do %>
+					<%= render(:partial => "cart" , :object => @cart) %>
+				<% end %>
+                <a href="http://www....">Home</a>
+                <br/>
+                <a href="http://www..../faq">Questions</a>
+                <br/>
+                <a href="http://www..../news">News</a>
+                <br/>
+                <a href="http://www..../contact">Contact</a>
+                <br/>
+            </div>
+            <div id="main">
+                <% if flash[:notice] -%>
+                <div id="notice">
+                    <%= flash[:notice] %>
+                </div>
+                <% end -%>
+				<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+">
+<input type="image" src="https://www.paypal.com/en_AU/i/btn/btn_viewcart_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+<img alt="" border="0" src="https://www.paypal.com/en_AU/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+                <%= yield :layout %>
+            </div>
+        </div>
+    </body>
+</html>
