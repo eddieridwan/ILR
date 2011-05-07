@@ -18,8 +18,11 @@
         <% for product in @products %>
         <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>">
             <td>
-    			<%= image_tag(product.image, :class => "list-image", :title => product.title) %>
-<!--                <img class="list-image" src="<%= product.image %>" /> -->
+            	<% if product.image.nil? %>
+	    			<%= image_tag("", :class => "list-image", :title => product.title) %>
+				<% else %>
+	    			<%= image_tag(product.image, :class => "list-image", :title => product.title) %>
+				<% end %>
             </td>
             <td>
                 <%=h product.productid %>
@@ -29,6 +32,9 @@
 				<%= h(truncate(product.description, 80)) %>
             <td>
                 <%=h product.publisher %>
+            </td>
+            <td>
+                <%=h product.category %>
             </td>
             <td class="list-actions">
                 <%= link_to 'Show', product %><br>	

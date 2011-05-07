@@ -1,0 +1,305 @@
+<!--
+LingvoSoftOnline Form 2.1 Start 
+http://www.lingvozone.com
+info@lingvozone.com
+© Copyright 1990-2008 ECTACO, Inc. LingvoSoft All rights reserved.
+-->
+<script type='text/javascript' src='http://www.lingvozone.com/javascripts/supported-languages.js'></script>
+<form method="GET" action="http://www.lingvozone.com/main.jsp" target="_blank" name="trans">
+<input type="hidden" name="action" value="translation"> <input name="do" type="hidden" value="dictionary"/> 
+<table cellpadding="0" cellspacing="2" bgcolor="#7a7a7a" border="0" style="margin-left: auto; margin-right: auto; margin-top:30px"> 
+<tr>
+<td bgcolor="#FFFFFF" align="center" background="http://www.lingvozone.com/images/online/2_ls_tbgr.gif"> 
+<a href="http://www.lingvozone.com" target="_blank">
+<img src="http://www.lingvozone.com/images/online/2_ls_free.gif" alt="Lingvosoft free online dictionary" border="0"/></a> 
+</td>
+</tr>
+<tr>
+<td bgcolor="#FFFFFF" background="/images/online/1_ls_bgr.gif"> <a href="http://www.lingvozone.com" target="_blank">
+<img src="http://www.lingvozone.com/images/online/2_ls.gif" border=0 alt="Lingvosoft online dictionary"></a>
+<center> 
+<table border="0" cellspacing="0" cellpadding="2" width="125" style="margin-left: auto; margin-right: auto;"> 
+<tr><td>
+<font style="font-family:verdana; font-size:11px;">From language:</font><br>
+<select name="language_id_from" style="font-size:11px" onChange="javascript:determinePlatform();">
+<option value="89" >Achinese</option>
+<option value="90" >Afrikaans</option>
+<option value="91" >Akan</option>
+<option value="92" >Alabama</option>
+<option value="1" >Albanian</option>
+<option value="2" >Arabic</option>
+<option value="55" >Armenian</option>
+<option value="93" >Aymara</option>
+<option value="56" >Azeri</option>
+<option value="94" >Balinese</option>
+<option value="95" >Bari</option>
+<option value="96" >Bashkir</option>
+<option value="97" >Basque</option>
+<option value="98" >Batak</option>
+<option value="66" >Belarusian</option>
+<option value="60" >Bengali</option>
+<option value="100" >Bikol</option>
+<option value="58" >Bosnian</option>
+<option value="101" >Breton</option>
+<option value="102" >Buginese</option>
+<option value="3" >Bulgarian</option>
+<option value="103" >Buriat</option>
+<option value="104" >Catalan</option>
+<option value="105" >Cebuano</option>
+<option value="106" >Chechen</option>
+<option value="75" >Chinese Contonese Romanized</option>
+<option value="73" >Chinese Contonese Simplified</option>
+<option value="74" >Chinese Contonese Traditional</option>
+<option value="78" >Chinese Mandarine Romanized</option>
+<option value="76" >Chinese Mandarine Simplified</option>
+<option value="77" >Chinese Mandarine Traditional</option>
+<option value="72" >Chinese Romanized</option>
+<option value="48" >Chinese-Simplified</option>
+<option value="80" >Chinese-Simplified for keygen</option>
+<option value="24" >Chinese-Traditional</option>
+<option value="79" >Chinese-Traditional for keygen</option>
+<option value="107" >Choctaw</option>
+<option value="108" >Chorti</option>
+<option value="109" >Chuang</option>
+<option value="110" >Chukchi</option>
+<option value="111" >Chuvash</option>
+<option value="112" >Creole</option>
+<option value="113" >Crimean</option>
+<option value="16" >Croatian</option>
+<option value="4" >Czech</option>
+<option value="114" >Dakota</option>
+<option value="54" >Danish</option>
+<option value="82" >Dari</option>
+<option value="115" >Dungan</option>
+<option value="40" >Dutch</option>
+<option value="116" >Dyerma</option>
+<option value="117" >Efik</option>
+<option value="23" >English</option>
+<option value="61" >English Explanatory</option>
+<option value="118" >Erzya</option>
+<option value="119" >Esperanto</option>
+<option value="45" >Estonian</option>
+<option value="120" >Evenki</option>
+<option value="121" >Ewe</option>
+<option value="122" >Fang</option>
+<option value="123" >Faroese</option>
+<option value="124" >Fijian</option>
+<option value="34" >Finnish</option>
+<option value="125" >Foochow</option>
+<option value="6" >French</option>
+<option value="126" >Frisian</option>
+<option value="127" >Fulani</option>
+<option value="128" >Gagauz</option>
+<option value="129" >Galician</option>
+<option value="130" >Gan</option>
+<option value="131" >Ganda</option>
+<option value="7" >German</option>
+<option value="8" >Greek</option>
+<option value="132" >Guarani</option>
+<option value="133" >Hainanese</option>
+<option value="134" >Hausa</option>
+<option value="25" >Hebrew</option>
+<option value="135" >Hiligaynon</option>
+<option value="42" >Hindi</option>
+<option value="136" >Hmong</option>
+<option value="137" >Hunanese</option>
+<option value="9" >Hungarian</option>
+<option value="57" >Indonesian</option>
+<option value="10" >Italian</option>
+<option value="35" >Japanese</option>
+<option value="63" >Japanese Kana</option>
+<option value="88" >Japanese Kana Romaji</option>
+<option value="62" >Japanese Kanji</option>
+<option value="84" >Japanese Kanji Kana</option>
+<option value="85" >Japanese Kanji Romaji</option>
+<option value="64" >Japanese Romaji</option>
+<option value="87" >Japanese Romaji Kanji</option>
+<option value="65" >Japanese Romanji</option>
+<option value="81" >Japanese for keygen</option>
+<option value="39" >Korean</option>
+<option value="46" >Latin</option>
+<option value="11" >Latvian</option>
+<option value="52" >Lithuanian</option>
+<option value="70" >ML11</option>
+<option value="36" >Malay</option>
+<option value="1001" >MultiLingual</option>
+<option value="1000" >NonEnglish</option>
+<option value="49" >Norwegian</option>
+<option value="5" >Persian(Farsi)</option>
+<option value="12" >Polish</option>
+<option value="13" >Portuguese</option>
+<option value="83" >Pushtu</option>
+<option value="14" >Romanian</option>
+<option value="86" >Romanized</option>
+<option value="15" >Russian</option>
+<option value="68" >Russian Business</option>
+<option value="69" >Russian Oil</option>
+<option value="71" >SAT 2k</option>
+<option value="53" >Serbian</option>
+<option value="17" >Slovak</option>
+<option value="51" >Slovenian</option>
+<option value="18" >Spanish</option>
+<option value="19" >Swedish</option>
+<option value="38" >Tagalog (Philippines)</option>
+<option value="59" >Tatar</option>
+<option value="47" >Thai</option>
+<option value="20" >Turkish</option>
+<option value="41" >Ukrainian</option>
+<option value="21" >Vietnamese</option>
+<option value="22" >Yiddish</option>
+<option value="139" >Zulu</option>
+</select>
+</td></tr>
+<tr><td>
+<font style="font-family:verdana; font-size:11px;">To language:</font><br>
+<select name="language_id_to" style="font-size:11px">
+<option value="89" >Achinese</option>
+<option value="90" >Afrikaans</option>
+<option value="91" >Akan</option>
+<option value="92" >Alabama</option>
+<option value="1" >Albanian</option>
+<option value="2" >Arabic</option>
+<option value="55" >Armenian</option>
+<option value="93" >Aymara</option>
+<option value="56" >Azeri</option>
+<option value="94" >Balinese</option>
+<option value="95" >Bari</option>
+<option value="96" >Bashkir</option>
+<option value="97" >Basque</option>
+<option value="98" >Batak</option>
+<option value="66" >Belarusian</option>
+<option value="60" >Bengali</option>
+<option value="100" >Bikol</option>
+<option value="58" >Bosnian</option>
+<option value="101" >Breton</option>
+<option value="102" >Buginese</option>
+<option value="3" >Bulgarian</option>
+<option value="103" >Buriat</option>
+<option value="104" >Catalan</option>
+<option value="105" >Cebuano</option>
+<option value="106" >Chechen</option>
+<option value="75" >Chinese Contonese Romanized</option>
+<option value="73" >Chinese Contonese Simplified</option>
+<option value="74" >Chinese Contonese Traditional</option>
+<option value="78" >Chinese Mandarine Romanized</option>
+<option value="76" >Chinese Mandarine Simplified</option>
+<option value="77" >Chinese Mandarine Traditional</option>
+<option value="72" >Chinese Romanized</option>
+<option value="48" >Chinese-Simplified</option>
+<option value="80" >Chinese-Simplified for keygen</option>
+<option value="24" >Chinese-Traditional</option>
+<option value="79" >Chinese-Traditional for keygen</option>
+<option value="107" >Choctaw</option>
+<option value="108" >Chorti</option>
+<option value="109" >Chuang</option>
+<option value="110" >Chukchi</option>
+<option value="111" >Chuvash</option>
+<option value="112" >Creole</option>
+<option value="113" >Crimean</option>
+<option value="16" >Croatian</option>
+<option value="4" >Czech</option>
+<option value="114" >Dakota</option>
+<option value="54" >Danish</option>
+<option value="82" >Dari</option>
+<option value="115" >Dungan</option>
+<option value="40" >Dutch</option>
+<option value="116" >Dyerma</option>
+<option value="117" >Efik</option>
+<option value="23" >English</option>
+<option value="61" >English Explanatory</option>
+<option value="118" >Erzya</option>
+<option value="119" >Esperanto</option>
+<option value="45" >Estonian</option>
+<option value="120" >Evenki</option>
+<option value="121" >Ewe</option>
+<option value="122" >Fang</option>
+<option value="123" >Faroese</option>
+<option value="124" >Fijian</option>
+<option value="34" >Finnish</option>
+<option value="125" >Foochow</option>
+<option value="6" >French</option>
+<option value="126" >Frisian</option>
+<option value="127" >Fulani</option>
+<option value="128" >Gagauz</option>
+<option value="129" >Galician</option>
+<option value="130" >Gan</option>
+<option value="131" >Ganda</option>
+<option value="7" >German</option>
+<option value="8" >Greek</option>
+<option value="132" >Guarani</option>
+<option value="133" >Hainanese</option>
+<option value="134" >Hausa</option>
+<option value="25" >Hebrew</option>
+<option value="135" >Hiligaynon</option>
+<option value="42" >Hindi</option>
+<option value="136" >Hmong</option>
+<option value="137" >Hunanese</option>
+<option value="9" >Hungarian</option>
+<option value="57" selected>Indonesian</option>
+<option value="10" >Italian</option>
+<option value="35" >Japanese</option>
+<option value="63" >Japanese Kana</option>
+<option value="88" >Japanese Kana Romaji</option>
+<option value="62" >Japanese Kanji</option>
+<option value="84" >Japanese Kanji Kana</option>
+<option value="85" >Japanese Kanji Romaji</option>
+<option value="64" >Japanese Romaji</option>
+<option value="87" >Japanese Romaji Kanji</option>
+<option value="65" >Japanese Romanji</option>
+<option value="81" >Japanese for keygen</option>
+<option value="39" >Korean</option>
+<option value="46" >Latin</option>
+<option value="11" >Latvian</option>
+<option value="52" >Lithuanian</option>
+<option value="70" >ML11</option>
+<option value="36" >Malay</option>
+<option value="1001" >MultiLingual</option>
+<option value="1000" >NonEnglish</option>
+<option value="49" >Norwegian</option>
+<option value="5" >Persian(Farsi)</option>
+<option value="12" >Polish</option>
+<option value="13" >Portuguese</option>
+<option value="83" >Pushtu</option>
+<option value="14" >Romanian</option>
+<option value="86" >Romanized</option>
+<option value="15" >Russian</option>
+<option value="68" >Russian Business</option>
+<option value="69" >Russian Oil</option>
+<option value="71" >SAT 2k</option>
+<option value="53" >Serbian</option>
+<option value="17" >Slovak</option>
+<option value="51" >Slovenian</option>
+<option value="18" >Spanish</option>
+<option value="19" >Swedish</option>
+<option value="38" >Tagalog (Philippines)</option>
+<option value="59" >Tatar</option>
+<option value="47" >Thai</option>
+<option value="20" >Turkish</option>
+<option value="41" >Ukrainian</option>
+<option value="21" >Vietnamese</option>
+<option value="22" >Yiddish</option>
+<option value="139" >Zulu</option>
+</select>	
+</td></tr>
+<tr><td align="center">
+<font style="font-family:verdana; font-size:11px;">Word:</font><br>
+<input type="text" name="word" size="27" maxlength="255" style="font-size:11px">
+</td></tr>
+</table>
+<input type="image" alt="Click here to translate now" border="0" value="Go!" 
+src="http://www.lingvozone.com/images/online/1_ls_go.gif" style="margin-top: 4px;">
+<a href="http://www.lingvozone.com/free-online-dictionary" style="text-decoration:none;"><br>
+<font size="1" color="#808080">online electronic dictionaries</font></a><br>
+<a href="http://www.lingvozone.com/LingvoSoft-Online-English-Indonesian-Dictionary" style="text-decoration:none;"><font size="1" color="#808080">English Indonesian Dictionary</font></a><br>
+</center>
+</td></tr>
+</table>
+</form>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+document.trans.language_id_from.value = 23;
+determinePlatform();	
+document.trans.language_id_to.value = 18;
+-->
+</script>
+<!--LingvoSoftOnline Form 2.1 End -->

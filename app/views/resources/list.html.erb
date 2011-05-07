@@ -1,0 +1,28 @@
+<h1>Indonesian Language Resources</h1>
+
+<p>
+    This is a directory of useful Indonesian language resources on the internet. 
+</p>
+
+<% @resources.each do |resource| %>
+	<div class="entry-details">
+	    <%= link_to(resource.title, resource.url, :target => '_blank') %><br>
+	    <%=h resource.summary %><br>
+		<span class="url"><%=h resource.url%></span>
+	</div>
+	
+	<br />
+<% end %>
+
+<div id="link-info">
+	Please contact <a href="mailto:info@languagetechnologies.com">info@languagetechnologies.com</a> 
+	to suggest a resource to include in this directory.
+</div>
+
+
+<% content_for('sidebar') do %>
+	<p id="cart"> </p>
+<% end %>
+
+
+

@@ -1,25 +1,24 @@
+<% # Parameters: product, :moreinfo? %>
+<% %>
 
-<% # Parameters: :product, :moreinfo? %>
-
-<div class="entry-img">
-    <%= image_tag(product.image, :title => product.title) %>
-</div>
-<div class="entry-details">
-    <h3><%= h(product.title) %></h3>
-    By <%= h(product.publisher) %> (publisher)
-    <br/>
-    <br/>
-    <%= product.description %>
-    <% if product.product_details.nil? == false && product.product_details.empty? == false && moreinfo == true %>
-    	<%= link_to("More Info", :action => "product_details", :id => product) %>
-    <% end %>
-    <div class="price-line">
-        <span class="price">AUD <%= number_to_currency(product.price) %></span>
-        <% form_remote_tag :url => { :action => 'add_to_cart', :id => product } do %>
-	        <%= submit_tag "Add to Cart" %>
-        <% end %>
-<!--
-		<%= button_to "Add to Cart" , :action => :add_to_cart, :id => product %>
--->
-    </div>
-</div>
+		<div class="entry-img">
+			<% if product.image.present?%>
+		    	<%= image_tag(product.image, :title => product.title) %>
+			<% end %>
+		</div>
+		<div class="entry-details">
+		    <h3><%= h(product.title) %></h3>
+		    By <%= h(product.publisher) %> (publisher)
+		    <br/>
+		    <br/>
+		    <%= product.description %>
+		    <% if product.product_details.present? && moreinfo == true %>
+		    	<%= link_to("More Info", :action => "product_details", :id => product) %>
+		    <% end %>
+		    <div class="price-line">
+		        <span class="price">AUD <%= number_to_currency(product.price) %></span>
+		        <% form_remote_tag :url => { :action => 'add_to_cart', :id => product } do %>
+			        <%= submit_tag "Add to Cart" %>
+		        <% end %>
+		    </div>
+		</div>

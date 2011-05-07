@@ -36,10 +36,10 @@ test:
   host: localhost
 
 production:
-  adapter: mysql
+  adapter: mysqlplus
   encoding: utf8
-  database: ILR_production
+  database: eddier_ilr
   pool: 5
-  username: eddier
-  password: louise
+  username: eddier_eddier
+  password: louise110756
   host: localhost

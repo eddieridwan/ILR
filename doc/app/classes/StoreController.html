@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: StoreController</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">StoreController</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/app/controllers/store_controller_rb.html">
+                app/controllers/store_controller.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="ApplicationController.html">
+                ApplicationController
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000053">add_to_cart</a>&nbsp;&nbsp;
+      <a href="#M000062">authorize</a>&nbsp;&nbsp;
+      <a href="#M000057">checkout</a>&nbsp;&nbsp;
+      <a href="#M000059">checkout_review</a>&nbsp;&nbsp;
+      <a href="#M000058">checkout_shipping</a>&nbsp;&nbsp;
+      <a href="#M000051">contact</a>&nbsp;&nbsp;
+      <a href="#M000055">empty_cart</a>&nbsp;&nbsp;
+      <a href="#M000050">index</a>&nbsp;&nbsp;
+      <a href="#M000060">mock_paypal</a>&nbsp;&nbsp;
+      <a href="#M000052">privacy</a>&nbsp;&nbsp;
+      <a href="#M000061">process_order</a>&nbsp;&nbsp;
+      <a href="#M000056">product_details</a>&nbsp;&nbsp;
+      <a href="#M000054">remove_from_cart</a>&nbsp;&nbsp;
+      <a href="#M000049">shop</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name">ActionView::Helpers::NumberHelper</span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000053" class="method-detail">
+        <a name="M000053"></a>
+
+        <div class="method-heading">
+          <a href="#M000053" class="method-signature">
+          <span class="method-name">add_to_cart</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000053-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000053-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/store_controller.rb, line 25</span>
+25:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_to_cart</span>
+26:     <span class="ruby-identifier">product</span> = <span class="ruby-constant">Product</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
+27:     <span class="ruby-ivar">@showbuttons</span> = <span class="ruby-keyword kw">true</span>
+28:     <span class="ruby-ivar">@cart</span> = <span class="ruby-identifier">find_cart</span>
+29:     <span class="ruby-ivar">@current_item</span> = <span class="ruby-ivar">@cart</span>.<span class="ruby-identifier">add_product</span>(<span class="ruby-identifier">product</span>)
+30:     <span class="ruby-ivar">@order</span> = <span class="ruby-identifier">find_order</span>
+31:     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+32:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">js</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">xhr?</span>
+33:       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to_index</span> }
+34:     <span class="ruby-keyword kw">end</span>
+35:   <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">RecordNotFound</span>
+36:     <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Attempt to access invalid product #{params[:id]}&quot;</span> )
+37:     <span class="ruby-identifier">redirect_to_index</span>(<span class="ruby-value str">&quot;Invalid product&quot;</span>)
+38:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000057" class="method-detail">
+        <a name="M000057"></a>
+
+        <div class="method-heading">
+          <a href="#M000057" class="method-signature">
+          <span class="method-name">checkout</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000057-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000057-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/store_controller.rb, line 85</span>
+ 85:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">checkout</span>
+ 86:     <span class="ruby-comment cmt"># View sequence: [1] address --&gt; [2] shipping method --&gt; [3] confirmation --&gt; [4] payment @PayPal</span>
+ 87:     <span class="ruby-comment cmt"># This action is [1]</span>
+ 88: 
+ 89:     <span class="ruby-comment cmt"># Clear errors if this view is not redirected from checkout_shipping, </span>
+ 90:     <span class="ruby-comment cmt"># where the form validation was triggered</span>
+ 91:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:came_from</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:came_from</span>] <span class="ruby-operator">!=</span> <span class="ruby-value str">&quot;address_validation&quot;</span>
+ 92:       <span class="ruby-ivar">@order</span> = <span class="ruby-identifier">find_order</span>
+ 93:       <span class="ruby-ivar">@order</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">clear</span>
+ 94:     <span class="ruby-keyword kw">end</span>
+ 95:     
+ 96:     <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:came_from</span>] = <span class="ruby-value str">&quot;checkout&quot;</span>
+ 97:     <span class="ruby-ivar">@title</span> = <span class="ruby-value str">&quot;Indonesian Language Resources Checkout&quot;</span>
+ 98:     <span class="ruby-ivar">@cart</span> = <span class="ruby-identifier">find_cart</span>
+ 99:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@cart</span>.<span class="ruby-identifier">items</span>.<span class="ruby-identifier">empty?</span>
+100:       <span class="ruby-identifier">redirect_to_index</span>(<span class="ruby-value str">&quot;Your cart is empty&quot;</span> )
+101:     <span class="ruby-keyword kw">else</span>
+102:       <span class="ruby-ivar">@order</span> = <span class="ruby-identifier">find_order</span>
+103:     <span class="ruby-keyword kw">end</span>
+104:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000059" class="method-detail">
+        <a name="M000059"></a>
+
+        <div class="method-heading">
+          <a href="#M000059" class="method-signature">
+          <span class="method-name">checkout_review</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000059-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000059-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/store_controller.rb, line 149</span>
+149:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">checkout_review</span>
+150:     <span class="ruby-comment cmt"># View sequence: [1] address --&gt; [2] shipping method --&gt; [3] confirmation --&gt; [4] payment @PayPal</span>
+151:     <span class="ruby-comment cmt"># This action is [3]</span>
+152: 
+153:     <span class="ruby-comment cmt"># Check cart in case user directly accessed url   </span>
+154:     <span class="ruby-ivar">@cart</span> = <span class="ruby-identifier">find_cart</span>
+155:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@cart</span>.<span class="ruby-identifier">items</span>.<span class="ruby-identifier">empty?</span>
+156:       <span class="ruby-identifier">redirect_to_index</span>(<span class="ruby-value str">&quot;Your cart is empty&quot;</span> )
+157:       <span class="ruby-keyword kw">return</span>
+158:     <span class="ruby-keyword kw">end</span>
+159:     
+160:     <span class="ruby-ivar">@order</span> = <span class="ruby-identifier">find_order</span>
+161:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@order</span>.<span class="ruby-identifier">nil?</span>
+162:       <span class="ruby-identifier">flash</span>[<span class="ruby-identifier">:notice</span>] = <span class="ruby-value str">&quot;Please complete your order details&quot;</span>
+163:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'checkout'</span>
+164:       <span class="ruby-keyword kw">return</span>
+165:     <span class="ruby-keyword kw">end</span>
+166: 
+167:     <span class="ruby-comment cmt"># Validate the order data entered in the checkout_shipping form</span>
+168:     <span class="ruby-comment cmt"># Go back to the checkout_shipping form if data is not valid</span>
+169:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:came_from</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;checkout_shipping&quot;</span>
+170:       <span class="ruby-comment cmt"># Update session order fields with values set in previous form</span>
+171:       <span class="ruby-comment cmt"># Should do this a bit safer, defining the fields set in each view in the Order model</span>
+172:       <span class="ruby-identifier">order</span> = <span class="ruby-constant">Order</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:order</span>])
+173:       <span class="ruby-ivar">@order</span> = <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:order</span>]
+174:      [<span class="ruby-identifier">:shipping_method</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attr</span><span class="ruby-operator">|</span>
+175:         <span class="ruby-ivar">@order</span>[<span class="ruby-identifier">attr</span>] = <span class="ruby-identifier">order</span>[<span class="ruby-identifier">attr</span>]
+176:         <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:order</span>] = <span class="ruby-ivar">@order</span>
+177:       <span class="ruby-keyword kw">end</span> 
+178:       <span class="ruby-ivar">@order</span>.<span class="ruby-identifier">enable_validation_group</span> <span class="ruby-identifier">:step2</span>
+179:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@order</span>.<span class="ruby-identifier">valid?</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>
+180:         <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:came_from</span>] = <span class="ruby-value str">&quot;shipping_validation&quot;</span>
+181:         <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'checkout_shipping'</span>
+182:         <span class="ruby-keyword kw">return</span>
+183:       <span class="ruby-keyword kw">end</span>
+184:     <span class="ruby-keyword kw">end</span>
+185: 
+186:     <span class="ruby-comment cmt"># Final check of order and save to database</span>
+187:     <span class="ruby-comment cmt"># Go back to the checkout form if data is not valid</span>
+188:     <span class="ruby-comment cmt"># Would only happen if user went directly to this view</span>
+189:     <span class="ruby-comment cmt"># @TODO should look at configuring routes.rb to specify what urls should not be accessible</span>
+190:     <span class="ruby-comment cmt"># Because the user can freely go to previous edit screens, it is possible that</span>
+191:     <span class="ruby-comment cmt"># the order has already been persisted</span>
+192:     <span class="ruby-identifier">delete_order_line_items</span>(<span class="ruby-ivar">@order</span>) <span class="ruby-comment cmt"># delete existing persisted line items for the order</span>
+193:     <span class="ruby-ivar">@order</span>.<span class="ruby-identifier">add_line_items_from_cart</span>(<span class="ruby-ivar">@cart</span>) <span class="ruby-comment cmt"># Also persists calculations</span>
+194:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@order</span>.<span class="ruby-identifier">save</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>
+195:       <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:came_from</span>] = <span class="ruby-value str">&quot;address_validation&quot;</span>
+196:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'checkout'</span>
+197:       <span class="ruby-keyword kw">return</span>
+198:     <span class="ruby-keyword kw">end</span>
+199: 
+200:     <span class="ruby-comment cmt"># Main path</span>
+201:     <span class="ruby-ivar">@title</span> = <span class="ruby-value str">&quot;Indonesian Language Resources Checkout&quot;</span>
+202:     <span class="ruby-comment cmt"># Show the cart in readonly mode</span>
+203:     <span class="ruby-ivar">@cart</span>.<span class="ruby-identifier">read_only</span> = <span class="ruby-keyword kw">true</span> <span class="ruby-comment cmt"># For this rendering only; reset in find_cart</span>
+204:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000058" class="method-detail">
+        <a name="M000058"></a>
+
+        <div class="method-heading">
+          <a href="#M000058" class="method-signature">
+          <span class="method-name">checkout_shipping</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000058-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000058-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/store_controller.rb, line 106</span>
+106:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">checkout_shipping</span>
+107:     <span class="ruby-comment cmt"># View sequence: [1] address --&gt; [2] shipping method --&gt; [3] confirmation --&gt; [4] payment @PayPal</span>
+108:     <span class="ruby-comment cmt"># This action is [2]</span>
+109: 
+110:     <span class="ruby-comment cmt"># Check cart in case user directly accessed url</span>
+111:     <span class="ruby-ivar">@cart</span> = <span class="ruby-identifier">find_cart</span>
+112:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@cart</span>.<span class="ruby-identifier">items</span>.<span class="ruby-identifier">empty?</span>
+113:       <span class="ruby-identifier">redirect_to_index</span>(<span class="ruby-value str">&quot;Your cart is empty&quot;</span> )
+114:       <span class="ruby-keyword kw">return</span>
+115:     <span class="ruby-keyword kw">end</span>
+116: 
+117:     <span class="ruby-comment cmt"># Validate the order data entered in the checkout form</span>
+118:     <span class="ruby-comment cmt"># Go back to the checkout form if data is not valid</span>
+119:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:came_from</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;checkout&quot;</span>
+120:       <span class="ruby-identifier">order</span> = <span class="ruby-constant">Order</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:order</span>])
+121:       <span class="ruby-ivar">@order</span> = <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:order</span>]
+122:       <span class="ruby-comment cmt"># Update order fields set in previous form to session</span>
+123:       <span class="ruby-comment cmt"># Should do this a bit safer, defining the fields set in each view in the Order model</span>
+124:       [<span class="ruby-identifier">:first_name</span>, <span class="ruby-identifier">:last_name</span>, <span class="ruby-identifier">:street_address_1</span>, <span class="ruby-identifier">:street_address_2</span>, <span class="ruby-identifier">:city</span>, <span class="ruby-identifier">:state</span>, <span class="ruby-identifier">:postcode</span>, <span class="ruby-identifier">:country</span>, <span class="ruby-identifier">:email</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attr</span><span class="ruby-operator">|</span>
+125:         <span class="ruby-ivar">@order</span>[<span class="ruby-identifier">attr</span>] = <span class="ruby-identifier">order</span>[<span class="ruby-identifier">attr</span>]
+126:         <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:order</span>] = <span class="ruby-ivar">@order</span>
+127:       <span class="ruby-keyword kw">end</span> 
+128:       <span class="ruby-ivar">@order</span>.<span class="ruby-identifier">enable_validation_group</span> <span class="ruby-identifier">:step1</span>
+129:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@order</span>.<span class="ruby-identifier">valid?</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>
+130:         <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:came_from</span>] = <span class="ruby-value str">&quot;address_validation&quot;</span>
+131:         <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'checkout'</span>
+132:         <span class="ruby-keyword kw">return</span>
+133:       <span class="ruby-keyword kw">end</span>
+134:     <span class="ruby-keyword kw">end</span>
+135: 
+136:     <span class="ruby-comment cmt"># For all paths including redirects from other checkout forms</span>
+137:     <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:came_from</span>] = <span class="ruby-value str">&quot;checkout_shipping&quot;</span>
+138:     <span class="ruby-ivar">@title</span> = <span class="ruby-value str">&quot;Indonesian Language Resources Checkout&quot;</span>
+139:     <span class="ruby-ivar">@order</span> = <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:order</span>]
+140:     <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@order</span>.<span class="ruby-identifier">country</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Order</span><span class="ruby-operator">::</span><span class="ruby-constant">COUNTRY_TYPES</span>.<span class="ruby-identifier">assoc</span>(<span class="ruby-value str">&quot;Australia&quot;</span>)[<span class="ruby-value">1</span>]
+141:       <span class="ruby-ivar">@shipping_type</span> = <span class="ruby-value str">&quot;Domestic&quot;</span>
+142:       <span class="ruby-ivar">@shipping_options</span> = <span class="ruby-constant">Order</span><span class="ruby-operator">::</span><span class="ruby-constant">DOMESTIC_SHIPPING</span>
+143:     <span class="ruby-keyword kw">else</span>
+144:       <span class="ruby-ivar">@shipping_type</span> = <span class="ruby-value str">&quot;International&quot;</span>
+145:       <span class="ruby-ivar">@shipping_options</span> = <span class="ruby-constant">Order</span><span class="ruby-operator">::</span><span class="ruby-constant">INTERNATIONAL_SHIPPING</span>
+146:     <span class="ruby-keyword kw">end</span>
+147:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000051" class="method-detail">
+        <a name="M000051"></a>
+
+        <div class="method-heading">
+          <a href="#M000051" class="method-signature">
+          <span class="method-name">contact</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000051-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000051-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/store_controller.rb, line 17</span>
+17:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">contact</span> 
+18:     <span class="ruby-ivar">@title</span> = <span class="ruby-value str">&quot;Indonesian Language Resources Contacts&quot;</span>
+19:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000055" class="method-detail">
+        <a name="M000055"></a>
+
+        <div class="method-heading">
+          <a href="#M000055" class="method-signature">
+          <span class="method-name">empty_cart</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000055-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000055-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/store_controller.rb, line 72</span>
+72:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">empty_cart</span>
+73:     <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:cart</span>] = <span class="ruby-keyword kw">nil</span>
+74:     <span class="ruby-identifier">redirect_to_index</span>
+75:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000050" class="method-detail">
+        <a name="M000050"></a>
+
+        <div class="method-heading">
+          <a href="#M000050" class="method-signature">
+          <span class="method-name">index</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000050-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000050-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/store_controller.rb, line 13</span>
+13:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index</span>
+14:     <span class="ruby-ivar">@title</span> = <span class="ruby-value str">&quot;Indonesian Language Resources&quot;</span>
+15:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000060" class="method-detail">
+        <a name="M000060"></a>
+
+        <div class="method-heading">
+          <a href="#M000060" class="method-signature">
+          <span class="method-name">mock_paypal</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000060-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000060-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/store_controller.rb, line 206</span>
+206:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mock_paypal</span>
+207:     <span class="ruby-comment cmt"># View sequence: [1] address --&gt; [2] shipping method --&gt; [3] confirmation --&gt; [4] payment @PayPal</span>
+208:     <span class="ruby-comment cmt"># This action is a mockup for [4]</span>
+209: 
+210:     <span class="ruby-comment cmt"># Pass parameters to the mock view   </span>
+211:     <span class="ruby-ivar">@paypal_parameters</span> = <span class="ruby-identifier">params</span>
+212:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000052" class="method-detail">
+        <a name="M000052"></a>
+
+        <div class="method-heading">
+          <a href="#M000052" class="method-signature">
+          <span class="method-name">privacy</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000052-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000052-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/store_controller.rb, line 21</span>
+21:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">privacy</span>
+22:     <span class="ruby-ivar">@title</span> = <span class="ruby-value str">&quot;Indonesian Language Resources Privacy Policy&quot;</span>
+23:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000061" class="method-detail">
+        <a name="M000061"></a>
+
+        <div class="method-heading">
+          <a href="#M000061" class="method-signature">
+          <span class="method-name">process_order</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+POST /store/process_order from PayPal payment
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000061-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000061-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/store_controller.rb, line 215</span>
+215:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">process_order</span>
+216:     <span class="ruby-identifier">payment_ok</span> = <span class="ruby-keyword kw">true</span>
+217:     <span class="ruby-comment cmt"># Check authenticity token sent to PayPal</span>
+218: <span class="ruby-comment cmt">#    if params[:custom] != form_authenticity_token</span>
+219: <span class="ruby-comment cmt">#      logger.info(&quot;Invalid authenticity token from paypal = &quot; + params[:custom])</span>
+220: <span class="ruby-comment cmt">#      payment_ok = false</span>
+221: <span class="ruby-comment cmt">#    end</span>
+222: <span class="ruby-comment cmt">#    if params[:payment_status] != &quot;Completed&quot;</span>
+223:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:st</span>] <span class="ruby-operator">!=</span> <span class="ruby-value str">&quot;Completed&quot;</span>
+224:       <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span>(<span class="ruby-value str">&quot;Payment status not completed = &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:st</span>])
+225:       <span class="ruby-identifier">payment_ok</span> = <span class="ruby-keyword kw">false</span>
+226:     <span class="ruby-keyword kw">end</span>
+227:     <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span>(<span class="ruby-value str">&quot;PayPal transaction = &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:tx</span>])
+228:     <span class="ruby-comment cmt"># If payment not successful, delete saved order and display error message</span>
+229:     <span class="ruby-ivar">@order</span> = <span class="ruby-identifier">find_order</span>
+230:     <span class="ruby-keyword kw">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">payment_ok</span>
+231:       <span class="ruby-identifier">order</span> = <span class="ruby-constant">Order</span>.<span class="ruby-identifier">find</span>(<span class="ruby-ivar">@order</span>.<span class="ruby-identifier">id</span>)
+232:       <span class="ruby-identifier">order</span>.<span class="ruby-identifier">destroy</span>
+233:       <span class="ruby-identifier">flash</span>[<span class="ruby-identifier">:notice</span>] = <span class="ruby-value str">&quot;Payment was not successful. Please try again&quot;</span>
+234:       <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'shop'</span>
+235:       <span class="ruby-keyword kw">return</span>
+236:     <span class="ruby-keyword kw">end</span>
+237:   
+238:     <span class="ruby-comment cmt"># If payment successful, record on order</span>
+239:     <span class="ruby-comment cmt"># and send invoice</span>
+240:      
+241:     <span class="ruby-ivar">@title</span> = <span class="ruby-value str">&quot;Indonesian Language Resources Checkout&quot;</span>
+242:     <span class="ruby-ivar">@cart</span> = <span class="ruby-identifier">find_cart</span>
+243: 
+244:     <span class="ruby-comment cmt"># Set order flag to say that payment has been completed</span>
+245:     <span class="ruby-ivar">@order</span>.<span class="ruby-identifier">update_attribute</span>(<span class="ruby-value str">&quot;payment_status&quot;</span>, <span class="ruby-keyword kw">true</span>)
+246:     
+247:     <span class="ruby-comment cmt"># Compile receipt to display</span>
+248:     <span class="ruby-comment cmt"># Email the receipt to customer</span>
+249:     <span class="ruby-comment cmt"># Email the order to languagetechnologies.com</span>
+250:     <span class="ruby-identifier">email</span> = <span class="ruby-constant">OrderMailer</span>.<span class="ruby-identifier">create_order_confirmation</span>(<span class="ruby-ivar">@order</span>)
+251:     <span class="ruby-identifier">email</span>.<span class="ruby-identifier">to</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+252:       <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span>(<span class="ruby-value str">&quot;---------- mail.to &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">e</span>)
+253:     <span class="ruby-keyword kw">end</span>
+254:     <span class="ruby-ivar">@order_confirmation</span> = <span class="ruby-identifier">email</span>
+255:     <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">email</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+256:       <span class="ruby-constant">OrderMailer</span>.<span class="ruby-identifier">deliver</span>(<span class="ruby-identifier">email</span>)
+257:     <span class="ruby-keyword kw">end</span>
+258: 
+259:     <span class="ruby-comment cmt"># Clean up session data</span>
+260:     <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:cart</span>] = <span class="ruby-keyword kw">nil</span>
+261:     <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:order</span>] = <span class="ruby-keyword kw">nil</span>
+262:     <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:payment</span>] = <span class="ruby-keyword kw">nil</span>
+263:     <span class="ruby-identifier">session</span>[<span class="ruby-identifier">:came_from</span>] = <span class="ruby-keyword kw">nil</span>
+264:     <span class="ruby-ivar">@cart</span> = <span class="ruby-keyword kw">nil</span> <span class="ruby-comment cmt"># provide empty cart to view</span>
+265:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000056" class="method-detail">
+        <a name="M000056"></a>
+
+        <div class="method-heading">
+          <a href="#M000056" class="method-signature">
+          <span class="method-name">product_details</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000056-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000056-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/store_controller.rb, line 77</span>
+77:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">product_details</span>
+78:     <span class="ruby-ivar">@product</span> = <span class="ruby-constant">Product</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
+79:     <span class="ruby-ivar">@title</span> = <span class="ruby-ivar">@product</span>.<span class="ruby-identifier">title</span>
+80:     <span class="ruby-ivar">@cart</span> = <span class="ruby-identifier">find_cart</span>
+81:     <span class="ruby-ivar">@showbuttons</span> = <span class="ruby-keyword kw">true</span>
+82:     <span class="ruby-ivar">@order</span> = <span class="ruby-identifier">find_order</span>
+83:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000054" class="method-detail">
+        <a name="M000054"></a>
+
+        <div class="method-heading">
+          <a href="#M000054" class="method-signature">
+          <span class="method-name">remove_from_cart</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Not used
+</p>
+<pre>
+ def update_cart_item
+   @cart = find_cart
+   product = Product.find(params[:id])
+   quantity = params[:cart_item][:quantity]
+
+   @current_item = @cart.update_item(product, quantity)
+   logger.info &quot;----title-------------&quot; + @current_item.title
+   logger.info &quot;----quantity----------&quot; + @current_item.quantity
+   logger.info number_to_currency(@current_item.price)
+   redirect_to_index
+ end
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000054-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000054-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/store_controller.rb, line 53</span>
+53:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">remove_from_cart</span>
+54:     <span class="ruby-ivar">@showbuttons</span> = <span class="ruby-keyword kw">true</span>
+55:     <span class="ruby-keyword kw">begin</span>
+56:       <span class="ruby-identifier">product</span> = <span class="ruby-constant">Product</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-identifier">:id</span>])
+57:     <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">RecordNotFound</span>
+58:       <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Attempt to access invalid product #{params[:id]}&quot;</span>)
+59:       <span class="ruby-identifier">redirect_to_index</span>(<span class="ruby-value str">&quot;Invalid product&quot;</span> )
+60:     <span class="ruby-keyword kw">else</span>
+61:       <span class="ruby-ivar">@cart</span> = <span class="ruby-identifier">find_cart</span>
+62:       <span class="ruby-ivar">@current_item</span> = <span class="ruby-ivar">@cart</span>.<span class="ruby-identifier">remove_product</span>(<span class="ruby-identifier">product</span>)
+63:       <span class="ruby-ivar">@order</span> = <span class="ruby-identifier">find_order</span>
+64:       <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+65:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">js</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">xhr?</span>
+66:         <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> {<span class="ruby-identifier">redirect_to_index</span>}
+67:       <span class="ruby-keyword kw">end</span>
+68:     <span class="ruby-keyword kw">end</span>
+69:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000049" class="method-detail">
+        <a name="M000049"></a>
+
+        <div class="method-heading">
+          <a href="#M000049" class="method-signature">
+          <span class="method-name">shop</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000049-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000049-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/controllers/store_controller.rb, line 5</span>
+ 5:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">shop</span>
+ 6:     <span class="ruby-ivar">@products</span> = <span class="ruby-constant">Product</span>.<span class="ruby-identifier">find_products_for_sale</span>
+ 7:     <span class="ruby-ivar">@cart</span> = <span class="ruby-identifier">find_cart</span>
+ 8:     <span class="ruby-ivar">@title</span> = <span class="ruby-value str">&quot;Indonesian Language Resources Online Shop&quot;</span>
+ 9:     <span class="ruby-ivar">@showbuttons</span> = <span class="ruby-keyword kw">true</span>
+10:     <span class="ruby-ivar">@order</span> = <span class="ruby-identifier">find_order</span>
+11:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000062" class="method-detail">
+        <a name="M000062"></a>
+
+        <div class="method-heading">
+          <a href="#M000062" class="method-signature">
+          <span class="method-name">authorize</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000062-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000062-source">
+<pre>
+     <span class="ruby-comment cmt"># File app/controllers/store_controller.rb, line 305</span>
+305:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authorize</span>
+306:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

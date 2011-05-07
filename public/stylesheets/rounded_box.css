@@ -1,0 +1,75 @@
+
+
+/* set the image to use and establish the lower-right position */
+.cssbox, .cssbox_body, .cssbox_head, .cssbox_head h2 {
+/*    background: transparent url(/images/categbox.png) no-repeat bottom right; */
+    background: url(/images/categbox-green.png) no-repeat bottom right;
+    margin: 0;
+    padding: 0; 
+}
+
+.cssbox {
+    width: 170px !important;   /* intended total box width - padding-right(next) */
+    width: 155px;              /* IE Win = width - padding */
+/*    padding-right: 15px;     */  /* the gap on the right edge of the image (not content padding) */
+    padding-right: 15px;       /* the gap on the right edge of the image (not content padding) */
+    margin: 20px auto;         /* use to position the box */
+}
+
+/* set the top-right image */
+.cssbox_head {
+    background-position: top right;
+/*    margin-right: -15px;    */   /* pull the right image over on top of border */
+    margin-right: -15px;       /* pull the right image over on top of border */
+    padding-right: 30px;       /* right-image-gap + right-inside padding */
+/*    padding-right: 40px;      */ /* right-image-gap + right-inside padding */
+}
+
+/* set the top-left image */
+.cssbox_head h2 {
+    background-position: top left;
+    margin: 0;                 /* reset */
+    border: 0;                 /* reset */
+    padding: 20px 0 10px 30px; /* padding-left = image gap + interior padding ... no padding-right */
+/*    padding: 25px 0 15px 30px; *//* padding-left = image gap + interior padding ... no padding-right */
+    height: auto !important; 
+    height: 1%;                /* IE Holly Hack */
+}
+
+/* set the lower-left corner image */
+.cssbox_body {
+    background-position: bottom left;
+    margin-right: 15px;        /* interior-padding right */
+    padding: 10px 0 5px 30px; /* mirror .cssbox_head right/left */
+}
+
+
+/* Misc Text formatting */
+.cssbox_head h2 {
+    color: white;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 14px;     /* this is tricky if box width is in ems */
+    text-align: center; 
+/*    text-shadow: rgb(0,0,0) 0px 2px 5px; /* Safari-only, but I'm doing it just 'cause I can */
+}
+.cssbox_body p {
+    margin: 0 0 5px;
+	color: black;
+}
+
+p.cssbox_bottom {
+    margin: 0 0 25px;	
+}
+
+.cssbox_body a, .css_body a:hover {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    text-decoration: underline;
+}
+
+code { 
+    white-space: pre; 
+}
+

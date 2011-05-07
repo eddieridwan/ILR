@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   
   validate :password_non_blank
 
-  validation_group :step1, :fields=>[:all]
+#  validation_group :step1, :fields=>[]
 
   def after_destroy
     if User.count.zero?

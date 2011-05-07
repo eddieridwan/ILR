@@ -1,5 +1,11 @@
 /* Global styles */
 
+body {
+  width: 1024px;	
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* START:notice */
 #notice {
   border: 2px solid red;
@@ -83,6 +89,13 @@
   overflow:hidden;
 }
 
+#main-nosidebar {
+  margin-bottom: 1em;
+  margin-top: 1em;
+  padding-left: 2em;
+  background: white;
+  overflow:hidden;
+}
 #side {
   float: left;
   padding-top: 1em;
@@ -90,6 +103,16 @@
   padding-bottom: 1em;
   padding-right: 1em;
   width: 16em;
+  background: #141;
+}
+
+#amazon-side {
+  float: left;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-bottom: 1em;
+  padding-right: 1em;
+  width: 14em;
   background: #141;
 }
 
@@ -253,6 +276,11 @@ h2 {
 
 /* END:cart */
 
+/* Side navigation */
+#side-nav {
+  color: white;
+  margin-top: 20px;
+}
 
 /* The error box */
 
@@ -315,7 +343,7 @@ h2 {
 	overflow:hidden;
 }
 
-#quiz .image {
+#quiz .rh-col {
 	float: right;
 	width: 400px;
 	margin-left: 10px;
@@ -324,8 +352,12 @@ h2 {
 	margin-bottom: -32767px; 
 }
 
-#quiz .image, #quiz .quiz-main {
+#quiz .rh-col, #quiz .quiz-main {
 	margin-top: 20px;
+}
+
+#quiz .image {
+	margin-bottom: 10px;
 }
 
 /* Product details page */
@@ -346,6 +378,7 @@ h2 {
 
 .depot-form {
 /*	height: 500px; */
+	margin-bottom: 10px;
 }
 
 .depot-form fieldset, #order-review fieldset {
@@ -429,4 +462,15 @@ h2 {
 #order-review .order-button {
 	padding-top: 10px;
 	padding-bottom: 10px;
+}
+
+/* Link page */
+#link-info {
+	margin-top: 100px;
+	margin-bottom: 15px;
+}
+
+/* Resource list */
+.url {
+	color: green;
 }

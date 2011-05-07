@@ -1,0 +1,28 @@
+        <table width="100%" cellpadding=0 cellspacing=0>
+        	<tr>
+        	<td class="logo" width="125px" rowspan=2>
+	            <%= image_tag("logoedtr.gif", :title => "Language Technologies") %>
+        	</td>
+			<td style="vertical-align:top">
+        	<div id="banner">
+	        	<div class="banner-heading">
+					<%= image_tag("indon.jpg", :class => "banner-img") %>
+					<span><%= @page_title || "Indonesian Language Resources" %></span>
+				</div>
+		        <div class="menubar">
+		            <%= link_to "Home", {:controller => 'store', :action => "index" } %>
+		            &nbsp;|&nbsp;<%= link_to "Shop", {:controller => 'store', :action => "shop", :cat => "Software"} %>
+		            &nbsp;|&nbsp;<%= link_to "Books", {:controller => 'store', :action => "amazon" } %>
+	            	&nbsp;|&nbsp;<%= link_to "Resources", {:controller => 'resources', :action => 'list'} %>
+					<% if session[:user_id] %>
+						&nbsp;|&nbsp;<%= link_to 'Orders', :controller => 'orders' %>
+						&nbsp;|&nbsp;<%= link_to 'Products', :controller => 'products' %>
+		            	&nbsp;|&nbsp;<%= link_to "Resources", {:controller => 'resources', :action => "index"} %>
+						&nbsp;|&nbsp;<%= link_to 'Users', :controller => 'users' %>
+						&nbsp;|&nbsp;<%= link_to 'Logout', :controller => 'admin', :action => 'logout' %>
+					<% end %>
+		        </div>
+			</div>
+			</td></tr>
+			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        </table>

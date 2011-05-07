@@ -2,7 +2,8 @@
 	# Parameters: @showbuttons, @order
 %>
 <div class="cart-title">
-    Cart <span class="cart-title-comment">(Australian dollars)</span>
+    <%= image_tag('cart.gif', :title => "Indonesian Language Resources Cart") %>
+	Cart <span class="cart-title-comment">(Australian dollars)</span>
 </div>
 <table>
 	<%= render(:partial => "cart_item" , :collection => cart.items, 

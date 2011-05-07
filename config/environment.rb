@@ -72,10 +72,10 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   # Please note that observers generated using script/generate observer need to have an _observer suffix
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
-  
+
 end
   ActionMailer::Base.smtp_settings = {
-    :address        => "mail.bigpond.net",
+    :address        => "mail.languagetechnologies.com",
 #    :port           => 25,
 #    :domain         => "www.languagetechnologies.com",
     :authentication => nil,
@@ -84,3 +84,7 @@ end
   }
   ActionMailer::Base.default_content_type = "text/plain"
   ActionMailer::Base.raise_delivery_errors = true
+  # Notify exceptions by email
+  ExceptionNotifier.exception_recipients = %w(info@languagetechnologies.com)
+  ExceptionNotifier.sender_address = %("Application Error" <admin@languagetechnologies.com>)
+  ExceptionNotifier.email_prefix = "[ILR]"

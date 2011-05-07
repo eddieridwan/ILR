@@ -1,0 +1,15 @@
+
+<% # Parameters: @product, @category %>
+<% %>
+
+<h1>Indonesian Language Resources Catalog 
+	<% if @category.present? %>
+		: <%= @category%>
+	<% end %>
+</h1>
+
+<% @products.each_index do |x| %>
+	<% noborder_div_if(x == @products.size-1) do %>
+		<%= render(:partial => "shop_entry", :locals => {:product => @products[x], :moreinfo => true}) %> 
+	<% end %>
+<% end %>

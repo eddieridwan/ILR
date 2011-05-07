@@ -1,9 +1,8 @@
-<% # Note that any white space is rendered in the text email message %>
 
 Indonesian Language Resources - Order Confirmation
 ------------------------------------------------------
 Order Number: <%= @order.id %>
-Date Ordered: <%= @date_ordered.strftime("%d %B %Y") %>
+Date Ordered: <%= @order.updated_at.strftime("%d %B %Y") %>
 
 Products [<%= @order.line_items.size %> items]
 ------------------------------------------------------
@@ -31,5 +30,6 @@ Delivery Address
 
 Payment Method
 ------------------------------------------------------
-Credit Card via PayPal 
+Credit Card via PayPal
+Payment completed: <%= @order.payment_status %> 
 

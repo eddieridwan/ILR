@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
   # GET /orders/1.xml
   def show
     @order = Order.find(params[:id])
+    @order_confirmation = OrderMailer.create_order_confirmation(@order)
 
     respond_to do |format|
       format.html # show.html.erb

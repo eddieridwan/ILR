@@ -1,0 +1,151 @@
+<div id="home">
+    <div id="welcome">
+        <h2>Welcome!</h2>
+        <p>
+            Welcome to the Indonesian Languages Resources Web Site! 
+            This site is being developed to assist you in learning, teaching and using the Indonesian language.
+        </p>
+        <p>
+            Bahasa Indonesia is a language used by over 230 million residents (in July 2008) of Indonesia 
+            and millions more world-wide. With its phonetic spelling and uncomplicated grammar, 
+            Bahasa Indonesia is relatively easy to learn and has wide appeal.
+        </p>
+        <p>
+            This site currently offers you a selection of practical easy-to-use software to help you learn Indonesian.  
+            Please go to our <%= link_to "Online Shop", :action => "shop" %> to see what is available. 
+			Over time, this site will develop to be your one-stop resource for finding contacts, materials, products and services related 
+            to Bahasa Indonesia. 
+        </p>
+        <p>
+            We encourage and invite you to suggest resources to add to our catalog. 
+            Please feel free to send your ideas to <a href="mailto:info@languagetechnologies.com">info@languagetechnologies.com</a>.
+        </p>
+    </div>
+    <div id="quiz">
+        <div class="image">
+        	<%= image_tag("borobudur.jpg", :title => "Borobudur temple", :width => "400px") %>
+        </div>
+        <div class="quiz-main">
+            <h2>Challenge</h2> 
+            <p>
+                "Onomatopoeia", or sound word, is a word whose sound imitates the actual sound to which it refers. 
+                You will be familiar with English examples such as 'bang', 'thud' and 'splash'. 
+                Match the following Indonesian examples with their English equivalents (try pronouncing them out loud):
+            </p>
+            <FORM ACTION="/store/quiz" METHOD="POST" name="Quiz_Form" LANGUAGE=javascript>
+                <INPUT TYPE="hidden" NAME="startchar" VALUE="item_">
+                <table border="0">
+                    <tr>
+                        <td valign="top">
+                            1.
+                        </td>
+                        <td valign="top">
+                            &nbsp;
+                            <select size="1" name="item_1">
+                                <option>&lt;select word&gt;</option>
+                                <option value="N">derik</option>
+                                <option value="Y">gonggong</option>
+                                <option value="N">ngeong</option>
+                                <option value="N">cit</option>
+                                <option value="N">dering</option>
+                            </select>
+                        </td>
+                        <td valign="top">
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td valign="top" bgcolor="#CCFFFF">
+                            woof (dog barking)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top">
+                            2.
+                        </td>
+                        <td valign="top">
+                            &nbsp;
+                            <select size="1" name="item_2">
+                                <option>&lt;select word&gt;</option>
+                                <option value="N">derik</option>
+                                <option value="N">gonggong</option>
+                                <option value="Y">ngeong</option>
+                                <option value="N">cit</option>
+                                <option value="N">dering</option>
+                            </select>
+                        </td>
+                        <td valign="top">
+                        </td>
+                        <td valign="top" bgcolor="#CCFFFF">
+                            meow (cat meowing)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top">
+                            3.
+                        </td>
+                        <td valign="top">
+                            &nbsp;
+                            <select size="1" name="item_3">
+                                <option>&lt;select word&gt;</option>
+                                <option value="N">derik</option>
+                                <option value="N">gonggong</option>
+                                <option value="N">ngeong</option>
+                                <option value="Y">cit</option>
+                                <option value="N">dering</option>
+                            </select>
+                        </td>
+                        <td valign="top">
+                        </td>
+                        <td valign="top" bgcolor="#CCFFFF">
+                            squeak (of mouse)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top">
+                            4.
+                        </td>
+                        <td valign="top">
+                            &nbsp;
+                            <select size="1" name="item_4">
+                                <option>&lt;select word&gt;</option>
+                                <option value="Y">derik</option>
+                                <option value="N">gonggong</option>
+                                <option value="N">ngeong</option>
+                                <option value="N">cit</option>
+                                <option value="N">dering</option>
+                            </select>
+                        </td>
+                        <td valign="top">
+                        </td>
+                        <td valign="top" bgcolor="#CCFFFF">
+                            creak (of door)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top">
+                            5
+                        </td>
+                        <td valign="top">
+                            &nbsp;
+                            <select size="1" name="item_5">
+                                <option>&lt;select word&gt;</option>
+                                <option value="N">derik</option>
+                                <option value="N">gonggong</option>
+                                <option value="N">ngeong</option>
+                                <option value="N">cit</option>
+                                <option value="Y">dering</option>
+                            </select>
+                        </td>
+                        <td valign="top">
+                        </td>
+                        <td valign="top" bgcolor="#CCFFFF">
+                            ring (of phone)
+                        </td>
+                    </tr>
+                </table>
+                <p>
+                    <input type="button" value="Check" name="Check" LANGUAGE=javascript onclick="CheckQuiz(form,5,form.startchar.value)"><input type="reset" value="Reset" name="B2">
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

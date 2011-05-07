@@ -1,0 +1,10 @@
+        <div id="footer">
+            <%= link_to "Home", { :action => "index" } %>
+            &nbsp;|&nbsp;<%= link_to "Contact", {:controller => 'store', :action => "contact" } %>
+            &nbsp;|&nbsp;<%= link_to "Privacy", {:controller => 'store', :action => "privacy" } %>
+		    &nbsp;|&nbsp;<%= link_to "Links", {:controller => 'store', :action => "links" } %>
+		    &nbsp;|&nbsp;<%= link_to "Admin", :controller => "admin" %>
+            <div class="copyright">
+                &copy; Copyright Language Technologies. All rights reserved.
+            </div>
+        </div>

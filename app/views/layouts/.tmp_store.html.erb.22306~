@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Resource for people seeking products and services 
+			to assist in the teaching, learning and general use of Bahasa Indonesia, 
+			the Indonesian language. 
+			Sarana lengkap untuk belajar bahasa Inggris dan untuk guru yang mengajarkan 
+			bahasa Inggris pada penutur bahasa Indonesia.">
+		<meta name="keywords" content="Indonesian language resources, Indonesian language products and services, 
+			spellchecker, language learning software, Bahasa Indonesia, dictionaries, 
+			translation, localisation, Indonesian language CD-ROMs, Indonesian language software, 
+			CDs, word list, linguist, ahli bahasa, Sarana bahasa Inggris, 
+			alat bantu dan layanan bahasa Inggris, spellchecker, 
+			perangkat lunak, belajar bahasa Inggris, Bahasa Inggris, kamus, penerjemahan, 
+			CD-ROM bahasa Inggris, software bahasa Inggris, CDs, 
+			daftar kata">
+        <title><%= @title %></title>
+        <%= stylesheet_link_tag "depot" , :media => "all" %>
+        <%= javascript_include_tag :defaults, 'quiz' %>	
+    </head>
+    <body id="store">
+        <table width="100%" cellpadding=0 cellspacing=0>
+        	<tr>
+        	<td class="logo" width="125px" rowspan=2>
+	            <%= image_tag("logoedtr.gif", :title => "Language Technologies") %>
+        	</td>
+			<td style="vertical-align:top">
+        	<div id="banner">
+	        	<div class="banner-heading">
+					<%= image_tag("indon.jpg", :class => "banner-img") %>
+					<span><%= @page_title || "Indonesian Language Resources" %></span>
+				</div>
+		        <div class="menubar">
+		            <%= link_to "Home", {:controller => 'store', :action => "index" } %>
+		            &nbsp;|&nbsp;<%= link_to "Shop", {:controller => 'store', :action => "shop" } %>
+		            &nbsp;|&nbsp;<%= link_to "Books", {:controller => 'store', :action => "amazon" } %>
+		            &nbsp;|&nbsp;<%= link_to "Contact", {:controller => 'store', :action => "contact" } %>
+		            &nbsp;|&nbsp;<%= link_to "Admin", :controller => "admin" %>
+					<% if session[:user_id] %>
+						&nbsp;|&nbsp;<%= link_to 'Orders', :controller => 'orders' %>
+						&nbsp;|&nbsp;<%= link_to 'Products', :controller => 'products' %>
+						&nbsp;|&nbsp;<%= link_to 'Users', :controller => 'users' %>
+						&nbsp;|&nbsp;<%= link_to 'Logout', :controller => 'admin', :action => 'logout' %>
+					<% end %>
+		        </div>
+			</div>
+			</td></tr>
+			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        </table>
+        <div id="columns">
+            <div id="side">
+            	<% if @cart.nil? == false %>
+                	<% hidden_div_if(@cart.items.empty?, :id => "cart" ) do %>
+                	<%= render(:partial => "cart" , :object => @cart, 
+							:locals => {:showbuttons => @showbuttons, :order => @order}) %>
+                	<% end %>
+				<% end %>
+            </div>
+            <div id="main">
+                <% if flash[:notice] -%>
+                <div id="notice">
+                    <%= flash[:notice] %>
+                </div>
+                <% end -%>
+                <%= yield :layout %>
+            </div>
+        </div>
+        <div id="footer">
+            <%= link_to "Home", { :action => "index" } %>
+            &nbsp;|&nbsp;<%= link_to "Contact", {:controller => 'store', :action => "contact" } %>
+            &nbsp;|&nbsp;<%= link_to "Privacy", {:controller => 'store', :action => "privacy" } %>
+            <div class="copyright">
+                &copy; Copyright Language Technologies. All rights reserved.
+            </div>
+        </div>
+    </body>
+</html>

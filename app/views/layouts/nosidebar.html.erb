@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <!-- meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" / -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="description" content="Resource for people seeking products and services 
+			to assist in the teaching, learning and general use of Bahasa Indonesia, 
+			the Indonesian language. 
+			Sarana lengkap untuk belajar bahasa Inggris dan untuk guru yang mengajarkan 
+			bahasa Inggris pada penutur bahasa Indonesia.">
+		<meta name="keywords" content="Indonesian language resources, Indonesian language products and services, 
+			spellchecker, language learning software, Bahasa Indonesia, dictionaries, 
+			translation, localisation, Indonesian language CD-ROMs, Indonesian language software, 
+			CDs, word list, linguist, ahli bahasa, Sarana bahasa Inggris, 
+			alat bantu dan layanan bahasa Inggris, spellchecker, 
+			perangkat lunak, belajar bahasa Inggris, Bahasa Inggris, kamus, penerjemahan, 
+			CD-ROM bahasa Inggris, software bahasa Inggris, CDs, 
+			daftar kata">
+        <title><%= @title %></title>
+        <%= stylesheet_link_tag "depot" , :media => "all" %>
+        <%= javascript_include_tag :defaults, 'quiz' %>	
+    </head>
+    <body id="resource">
+		<%= render(:partial => "layouts/main_menu") %>        
+		<div id="columns">
+            <div id="main-nosidebar">
+                <% if flash[:notice] -%>
+                <div id="notice">
+                    <%= flash[:notice] %>
+                </div>
+                <% end -%>
+                <%= yield :layout %>
+            </div>
+        </div>
+		<%= render(:partial => "layouts/footer") %>        
+    </body>
+</html>

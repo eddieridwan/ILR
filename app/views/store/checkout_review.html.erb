@@ -1,12 +1,15 @@
 <div id="order-review">
-	<!--
-    <% form_tag :action => :mock_paypal do %>
-	-->
-	<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-	<% #<form action="https://www.paypal.com/cgi-bin/webscr" method="post">%>
-    <fieldset>
+<!--
+     <% form_tag :action => :mock_paypal do %>
+-->
+	<% if ENV['RAILS_ENV'] == 'production' %>
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+	<% else %>
+		<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+	<% end %>
+	<fieldset>
         <legend>
-            Please Review Your Order [Step 3 of 4]
+            Please Review Your Order
         </legend>
 	<div>
 		<div class="review-heading">
@@ -38,10 +41,15 @@
 				<td class="order-button">
 					<input type="hidden" name="cmd" value="_cart">
 					<input type="hidden" name="upload" value="1">
-					<!--				
-					<input type="hidden" name="business" value="eddie.ridwan@languagetechnologies.com">
-					-->
-					<input type="hidden" name="business" value="eddie._1242079947_biz@languagetechnologies.com">
+					<% if ENV['RAILS_ENV'] == 'production' %>
+						<input type="hidden" name="business" value="eddie.ridwan@languagetechnologies.com">
+						<input type="hidden" name="return" value="http://languagetechnologies.com/store/process_order">
+						<input type="hidden" name="cancel_return" value="http://languagetechnologies.com/store/shop">
+					<% else %>
+						<input type="hidden" name="business" value="eddie._1242079947_biz@languagetechnologies.com">
+						<input type="hidden" name="return" value="http://127.0.0.1:3001/store/process_order">
+						<input type="hidden" name="cancel_return" value="http://127.0.0.1:3001/store/shop">
+					<% end %>
 					<INPUT TYPE="hidden" NAME="first_name" value="<%= @order.first_name %>">
 					<INPUT TYPE="hidden" NAME="last_name" value="<%= @order.last_name %>">
 					<% i = 1 %>
@@ -54,13 +62,12 @@
 					<input type="hidden" name="handling_cart" value="<%= @order.calc_shipping_cost(@cart) %>">
 					<INPUT TYPE="hidden" NAME="currency_code" value="AUD">
 					<input type="hidden" name="no_shipping" value="1">
-					<% # On success, returns transaction variables using POST %>
-					<% # Pass authenticity token which will be checked when it is returned in the POST %>
+					<!-- On success, PayPal returns these transaction variables using POST
+						 Pass authenticity token which will be checked when it is returned in the POST
+					-->
 					<input type="hidden" name="invoice" value="<%= Time.now.strftime('%m%y') + '_' + @order.id.to_s %>">
 					<input type="hidden" name="custom" value="<%= form_authenticity_token %>">
 					<input type="hidden" name="rm" value="2">
-					<input type="hidden" name="return" value="http://127.0.0.1:3001/store/process_order">
-					<input type="hidden" name="cancel_return" value="http://127.0.0.1:3001/store">
 					<input type="submit" value="Payment &gt;">
 				</td>
 				<td>
