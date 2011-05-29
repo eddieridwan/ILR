@@ -1,0 +1,27 @@
+%h1 Indonesian Language Resources
+
+%p
+  This is a directory of useful Indonesian language resources on the internet. 
+
+- @resources.each do |resource| 
+  .entry-details
+    = link_to(resource.title, resource.url, :target => '_blank')
+    %br
+    =h resource.summary
+    %span.url=h resource.url
+
+
+#link-info
+  = link_to("Add a resource", new_resource_path)
+  %span 
+    or contact <a href="mailto:info@languagetechnologies.com">info@languagetechnologies.com</a> 
+    to suggest a resource to include in this directory.
+
+
+
+- content_for('sidebar') do
+  %p(id="cart")
+
+
+
+

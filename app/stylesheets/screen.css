@@ -1,0 +1,349 @@
+body {
+  width: 1024px;
+  margin-left: auto;
+  margin-right: auto; }
+
+#notice {
+  border: 2px solid red;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #f0f0f0;
+  font: bold smaller sans-serif; }
+
+#product-list .list-title {
+  color: #224444;
+  font-weight: bold;
+  font-size: larger; }
+
+#product-list .list-image {
+  width: 60px;
+  height: 70px; }
+
+#product-list .list-actions {
+  font-size: x-small;
+  text-align: right;
+  padding-left: 1em; }
+
+#product-list .list-line-even {
+  background: #e0f8f8; }
+
+#product-list .list-line-odd {
+  background: #f8b0f8; }
+
+.logo {
+  margin-left: 10px;
+  background: white; }
+
+#banner {
+  background: #99cc99;
+  background-image: url(/images/gradient-7TUK6.png);
+  background-repeat: repeat-y;
+  padding-top: 10px;
+  padding-bottom: 5px; }
+
+#banner .banner-heading {
+  font: small-caps 40px/40px "Times New Roman", serif; }
+
+#banner .banner-img {
+  float: right;
+  width: 70px;
+  margin-right: 10px; }
+
+#columns {
+  background: #114411; }
+
+#main {
+  margin-left: 15em; }
+
+#main-nosidebar {
+  margin-bottom: 1em;
+  margin-top: 1em;
+  padding-left: 2em;
+  background: white;
+  overflow: hidden; }
+
+#side {
+  float: left;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-bottom: 1em;
+  padding-right: 1em;
+  width: 16em;
+  background: #114411; }
+
+#amazon-side {
+  float: left;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-bottom: 1em;
+  padding-right: 1em;
+  width: 14em;
+  background: #114411; }
+
+#side a {
+  color: #bbffbb;
+  font-size: small; }
+
+h1 {
+  font: 150% sans-serif;
+  color: #222266;
+  border-bottom: 3px dotted #7777dd; }
+
+h2 {
+  font-size: 125%; }
+
+#footer {
+  background: #99cc99;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top: 2px solid;
+  color: #228822;
+  text-align: center;
+  clear: both; }
+
+.copyright {
+  padding-top: 5px; }
+
+#store {
+  font-family: verdana, garamond, sans-serif;
+  font-size: small; }
+
+#store .title {
+  font-size: 120%; }
+
+#entry img {
+  width: 75px; }
+
+#entry {
+  border-bottom: 1px dotted #7777dd;
+  clear: both;
+  margin-top: 10px; }
+
+#entry h3 {
+  font: 125% sans-serif;
+  margin-bottom: 2px;
+  margin-top: 0px;
+  color: #222266; }
+
+#entry p {
+  margin-top: 0px;
+  margin-bottom: 0.8em; }
+
+#entry .price-line {
+  margin-top: 5px;
+  margin-bottom: 5px; }
+
+#entry .add-to-cart {
+  position: relative; }
+
+#entry .price {
+  color: #4444aa;
+  font-weight: bold;
+  margin-right: 2em; }
+
+#entry .entry-img {
+  width: 75px;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-top: 0px; }
+
+#entry .entry-details {
+  margin-bottom: 10px;
+  margin-left: 85px; }
+
+#entry form, #entry form div {
+  display: inline; }
+
+/* START:cart */
+.cart-title {
+  font-size: 120%;
+  font-weight: bold;
+  padding-bottom: 3px; }
+
+.cart-title .cart-title-comment {
+  font-weight: normal;
+  font-size: 80%; }
+
+.item-price, .total-line {
+  text-align: right; }
+
+.total-line .total-cell {
+  font-weight: bold;
+  border-top: 1px solid #559955; }
+
+#cart, #cart table {
+  font-size: 80%;
+  color: white; }
+
+#cart table {
+  border-top: 1px dotted #559955;
+  border-bottom: 1px dotted #559955;
+  margin-bottom: 10px; }
+
+#cart form {
+  padding-bottom: 2px; }
+
+#cart .item-quantity {
+  width: 2em; }
+
+#cart .cart-buttons * {
+  display: inline; }
+
+#cart .remove-tag {
+  margin: 0px;
+  padding: 0px; }
+
+#cart .remove-tag * {
+  display: inline; }
+
+#side-nav {
+  color: white;
+  margin-top: 20px; }
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: #eeffee;
+  display: inline; }
+
+.fieldWithErrors * {
+  background-color: red; }
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0; }
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #cc0000;
+  color: white; }
+
+#errorExplanation p {
+  color: #333333;
+  margin-bottom: 0;
+  padding: 5px; }
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square; }
+
+#contact .image {
+  margin-top: 15px;
+  margin-bottom: 10px; }
+
+#welcome {
+  margin-bottom: 40px; }
+
+#quiz {
+  border-top: 1px dotted;
+  border-top-color: #7777dd;
+  overflow: hidden; }
+
+#quiz .rh-col {
+  float: right;
+  width: 400px;
+  margin-left: 10px;
+  text-align: center;
+  padding-bottom: 32767px;
+  margin-bottom: -32767px; }
+
+#quiz .rh-col, #quiz .quiz-main {
+  margin-top: 20px; }
+
+#quiz .image {
+  margin-bottom: 10px; }
+
+#product-details {
+  font-family: verdana, garamond, sans-serif;
+  font-size: small;
+  margin-bottom: 10px; }
+
+#privacy {
+  margin-bottom: 10px; }
+
+.depot-form {
+  margin-bottom: 10px; }
+
+.depot-form fieldset, #order-review fieldset {
+  background: #eeffee; }
+
+.depot-form legend, #order-review legend, #order-review .subheading {
+  color: #ddffdd;
+  background: #114411;
+  font-family: sans-serif;
+  padding: 0.2em 1em; }
+
+.depot-form label {
+  width: 13em;
+  float: left;
+  clear: left;
+  text-align: right;
+  padding-top: 0.2em;
+  margin-right: 0.1em;
+  display: block; }
+
+.depot-form select, .depot-form textarea, .depot-form input {
+  margin-left: 0.5em; }
+
+.depot-form .submit {
+  text-align: center;
+  margin-bottom: 5px;
+  margin-left: 13.4em;
+  margin-top: 15px; }
+
+.depot-form div {
+  margin: 0.5em 0; }
+
+.depot-form .explanation {
+  margin-left: 3em;
+  margin-bottom: 3em; }
+
+.depot-form .card-image {
+  margin-left: 13em;
+  margin-top: 10px; }
+
+.depot-form .cvv {
+  font-size: x-small; }
+
+.checkout-buttons * {
+  display: inline; }
+
+.checkout-links {
+  margin-top: 5px;
+  margin-bottom: 20px; }
+
+#order-review .review-heading {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 10px; }
+
+#order-review .review-heading * {
+  display: inline;
+  margin-right: 10px; }
+
+#order-review .review-label {
+  width: 13em;
+  text-align: right;
+  padding-right: 10px; }
+
+#order-review .order-button {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+#link-info {
+  margin-top: 100px;
+  margin-bottom: 15px; }
+
+.url {
+  color: green; }
+
+.entry-details {
+  margin-bottom: 1em; }

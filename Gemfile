@@ -3,7 +3,10 @@ source 'http://gems.github.com'
 
 gem 'rails',                            '2.3.11'
 
+gem 'haml',                             '2.2.17'
+gem 'sass',                             '3.1.1'
 gem 'mysql',                            '>= 2.8.1'
+gem 'rake',								'0.9.0'
 
 
 group :dev do

@@ -1,5 +1,5 @@
 class ResourcesController < ApplicationController
-  before_filter :authorize, :except => :list
+  before_filter :authorize, :except => [:list, :new, :create]
   layout "nosidebar"
 
   def list
