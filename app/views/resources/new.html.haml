@@ -1,0 +1,36 @@
+#resource_form
+  %h1 New resource
+  
+  - form_for(@resource) do |f|
+    = f.error_messages
+  
+    %table
+      %tr
+        %th= f.label :title
+        %td= f.text_field :title
+      %tr
+        %th= f.label :summary
+        %td= f.text_area :summary
+      %tr
+        %th= f.label :description
+        %td= f.text_area :description
+      %tr
+        %th= f.label :category
+        %td= f.text_field :category
+      %tr
+        %th= f.label :organisation
+        %td= f.text_field :organisation
+      %tr
+        %th= f.label :url
+        %td= f.text_field :url
+      %tr
+        %th= f.label :image
+        %td= f.text_field :image
+      %tr
+        %th= f.label :tags
+        %td= f.text_field :tags
+    %p
+      = f.submit 'Create'
+  
+  = link_to 'Back', resources_path
+

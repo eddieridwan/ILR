@@ -352,3 +352,14 @@ h2 {
 
 .entry-details {
   margin-bottom: 1em; }
+
+#resource_form th {
+  background-color: #cccccc;
+  text-align: right;
+  vertical-align: top;
+  padding: 0px 5px 0px 5px; }
+#resource_form input, #resource_form textarea {
+  padding-left: 5px;
+  width: 300px; }
+#resource_form textarea {
+  height: 5em; }
