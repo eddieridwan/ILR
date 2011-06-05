@@ -353,13 +353,15 @@ h2 {
 .entry-details {
   margin-bottom: 1em; }
 
-#resource_form th {
+#resource_form table th {
   background-color: #cccccc;
   text-align: right;
   vertical-align: top;
   padding: 0px 5px 0px 5px; }
-#resource_form input, #resource_form textarea {
+#resource_form table input, #resource_form table textarea {
   padding-left: 5px;
   width: 300px; }
-#resource_form textarea {
+#resource_form table textarea {
   height: 5em; }
+#resource_form .links {
+  margin-top: 10px; }

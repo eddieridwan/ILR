@@ -23,7 +23,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :line_items
   map.resources :orders
   map.resources :products
-  map.connect "resources/list", :controller => "resources", :action => "list"
+  map.list_resources "resources/list", :controller => "resources", :action => "list"
   map.resources :resources
 
   # Sample resource route with options:

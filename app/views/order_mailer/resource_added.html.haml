@@ -1,0 +1,30 @@
+
+%p= "Resource added by user at: #{@date_added.strftime('%d %B %Y')}"
+
+%table
+  %tr
+    %th Title
+    %td= link_to @resource.title, resource_url(@resource, :host=> @request.host, :port => @request.port)
+  %tr
+    %th Brief description
+    %td= @resource.summary
+  %tr
+    %th Description
+    %td= @resource.description
+  %tr
+    %th Category
+    %td= @resource.category
+  %tr
+    %th Organisation
+    %td= @resource.organisation
+  %tr
+    %th Url
+    %td= @resource.url
+  %tr
+    %th Image
+    %td= @resource.image
+  %tr
+    %th Tags
+    %td= @resource.tags
+
+%p Please review.

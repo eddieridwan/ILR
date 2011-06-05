@@ -1,5 +1,5 @@
 class ResourcesController < ApplicationController
-  before_filter :authorize, :except => [:list, :new, :create]
+  before_filter :authorize, :except => [:list, :new, :create, :show]
   layout "nosidebar"
 
   def list
@@ -51,10 +51,16 @@ class ResourcesController < ApplicationController
   # POST /resources.xml
   def create
     @resource = Resource.new(params[:resource])
+    @resource.status = User.find_by_id(session[:user_id]) ? "final" : "draft"
 
     respond_to do |format|
       if @resource.save
-        flash[:notice] = 'Resource was successfully created.'
+        if User.find_by_id(session[:user_id])
+          flash[:notice] = 'Resource was successfully created.'
+        else
+          notify_resource_added(@resource, request)
+          flash[:notice] = 'Thank you for adding the resource. It will appear in the resource list after we have reviewed it.'
+        end
         format.html { redirect_to(@resource) }
         format.xml  { render :xml => @resource, :status => :created, :location => @resource }
       else
@@ -102,6 +108,12 @@ protected
 #    end
 #  end
 
+  def notify_resource_added(resource, request)
+    email = OrderMailer.create_resource_added(resource, request)
+    Thread.new(email) do |e|
+      OrderMailer.deliver(email)
+    end
+  end
 end
 
 
