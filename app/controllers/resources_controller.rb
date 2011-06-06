@@ -4,7 +4,7 @@ class ResourcesController < ApplicationController
 
   def list
     @title = "Indonesian Language Resources"
-    @resources = Resource.find(:all, :order => "title")  
+    @resources = Resource.final(:order => "title")  
     render :layout => 'resource'
   end
   

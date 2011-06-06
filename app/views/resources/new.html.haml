@@ -15,6 +15,9 @@
         %tr
           %th= f.label :description
           %td= f.text_area :description
+        %tr
+          %th= f.label :image
+          %td= f.text_field :image
       %tr
         %th= f.label :category
         %td= f.text_field :category
@@ -24,9 +27,6 @@
       %tr
         %th= f.label :url
         %td= f.text_field :url
-      %tr
-        %th= f.label :image
-        %td= f.text_field :image
       %tr
         %th= f.label :tags
         %td= f.text_field :tags
