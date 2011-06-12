@@ -1,5 +1,5 @@
 #resource_form
-  %h1 New resource
+  %h1 Editing resource
   
   - form_for(@resource) do |f|
     = f.error_messages
@@ -34,10 +34,9 @@
         %th= f.label :submitted_by, "Your email adddress"
         %td= f.text_field :submitted_by
     %p
-      = f.submit 'Create'
+      = f.submit 'Update'
   
     - if User.find_by_id(session[:user_id])
       = link_to 'Cancel', resources_path
     - else
       = link_to 'Cancel', list_resources_path 
-

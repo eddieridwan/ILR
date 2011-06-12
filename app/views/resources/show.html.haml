@@ -25,6 +25,9 @@
     %tr
       %th Tags
       %td= @resource.tags
+    %tr
+      %th Your email address
+      %td= @resource.submitted_by
 
   .links
     - if User.find_by_id(session[:user_id])

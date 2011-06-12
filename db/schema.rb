@@ -54,18 +54,19 @@ ActiveRecord::Schema.define(:version => 20110528071716) do
   end
 
   create_table "resources", :force => true do |t|
-    t.string   "title"
+    t.string   "title",        :null => false
     t.string   "category"
     t.string   "tags"
-    t.text     "summary"
+    t.text     "summary",      :null => false
     t.text     "description"
     t.string   "url"
     t.string   "organisation"
     t.string   "image"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "status"
     t.string   "type"
+    t.string   "submitted_by"
   end
 
   create_table "sessions", :force => true do |t|

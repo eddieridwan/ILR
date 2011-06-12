@@ -15,9 +15,16 @@
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 development:
+#  adapter: mysql
+#  encoding: utf8
+#  database: ILR_development
+#  pool: 5
+#  username: eddier
+#  password: louise
+#  host: localhost
   adapter: mysql
   encoding: utf8
-  database: ILR_development
+  database: eddier_ilr
   pool: 5
   username: eddier
   password: louise
@@ -36,10 +43,10 @@ test:
   host: localhost
 
 production:
-  adapter: mysqlplus
+  adapter: mysql
   encoding: utf8
   database: eddier_ilr
   pool: 5
-  username: eddier_eddier
+  username: eddier
   password: louise110756
   host: localhost
