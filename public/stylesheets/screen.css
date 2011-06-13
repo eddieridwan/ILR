@@ -353,6 +353,9 @@ h2 {
 .entry-details {
   margin-bottom: 1em; }
 
+.title_bar span.button {
+  float: right; }
+
 #resource_form table th {
   background-color: #cccccc;
   text-align: right;
