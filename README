@@ -36,6 +36,11 @@ To migrate databases:
 7. create (or edit existing A|B) ilr app to point to the new server database
 8. test and then switch to become the main languagetechnologies.com app
 
+Point http://languagetechnologies.com to the new ilr app.
+Do this using the RoR url rewrite facility on the mochahost cpanel.
+May also need to edit the .htaccess file in the public_html folder as the domain may still be pointing to the old ilr app.
+
+
 TODO ====================
 1. Find out a way to use bundler on mochahost, pointing to gems in /home/eddier/ruby/gems
 2. Or find out a way to load gems from /home/eddier/ruby/gems
