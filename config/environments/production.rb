@@ -29,4 +29,4 @@ config.action_controller.perform_caching             = true
 # Todo: Find out a way to point to the mochahost gems, as none of the following work.
   $LOAD_PATH.push("/home/eddier/ruby/gems")
   ENV['GEM_PATH'] = '/home/eddier/ruby/gems'
-  config.load_paths += %W(/home/eddier/ruby/gems)
+  config.autoload_paths += %W(/home/eddier/ruby/gems)
