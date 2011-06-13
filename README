@@ -7,6 +7,7 @@ Requires patch to fix problems with cookies and redirects when running on Mongre
 The patch is at https://gist.github.com/826692 => config/initializers/mongrel.rb
 See also the following discussion thread: https://rails.lighthouseapp.com/projects/8994/tickets/4690
 
+
 The git repository is at https://github.com/eddieridwan/ILR
 
 Deploy ======
@@ -16,4 +17,25 @@ Deploy using FTP
 There is no ssh or command line access. So have to manually create the database using
 cpanel Mysql facilities.
 
-Todo: look at ways to make db changes locally and then push to the server.
+For the mochahost production environment, must also freeze rails (rake rails:freeze:gems) to vendor/rails to patch a problem with 
+loading gems: http://betterlogic.com/roger/2011/05/undefined-method/. i.e. make changes to gem_dependency.rb
+FTP vendor/rails if changes are required to rails.
+
+For the mochahost production environment, must also unpack any gems to vendor/gems. To unpack the gems run
+  rake gems:unpack:dependencies GEM=gem_name
+in the rails shell in Aptana Studio. This rake command does not seem to work in git bash.
+When adding new gems remember to unpack the gems and FTP vendor/gems 
+
+To migrate databases:
+1. export production database from phpMysqladmin (mysqldump)
+2. import the database dumpfile: mysql dumpfile < local database
+3. set database.yml to point to the imported local database
+4. rake db:migrate the new database (if necessary, change the version in the schema_migrations table)
+5. mysqldump new database > database dump to publish to mochahost
+6. in mochahost import the database dump to a new server database (or existing A|B database)
+7. create (or edit existing A|B) ilr app to point to the new server database
+8. test and then switch to become the main languagetechnologies.com app
+
+TODO ====================
+1. Find out a way to use bundler on mochahost, pointing to gems in /home/eddier/ruby/gems
+2. Or find out a way to load gems from /home/eddier/ruby/gems

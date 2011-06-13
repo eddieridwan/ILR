@@ -4,3 +4,5 @@ log/*.log
 tmp/**/*
 .sass-cache/*
 log/*
+vendor/rails_bak/*
+vendor/gems/*

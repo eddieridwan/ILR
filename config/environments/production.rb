@@ -25,5 +25,8 @@ config.action_controller.perform_caching             = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :sendmail
   
-# Path for ruby gems
+# Path for ruby gems, as in mochahost the gems installed using cpanel are installed at /home/eddier/ruby/gems
+# Todo: Find out a way to point to the mochahost gems, as none of the following work.
   $LOAD_PATH.push("/home/eddier/ruby/gems")
+  ENV['GEM_PATH'] = '/home/eddier/ruby/gems'
+  config.load_paths += %W(/home/eddier/ruby/gems)
