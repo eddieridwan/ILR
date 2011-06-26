@@ -1,0 +1,3 @@
+class ExchangeResource < Resource
+  
+end

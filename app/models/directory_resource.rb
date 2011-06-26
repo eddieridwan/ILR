@@ -1,0 +1,3 @@
+class DirectoryResource < Resource
+
+end
