@@ -4,7 +4,7 @@ class ResourcesController < ApplicationController
 
   def list
     @title = "Indonesian Language Resources"
-    @resources = Resource.reviewed(:order => "title")  
+    @resources = Resource.reviewed  
     render :layout => 'resource'
   end
   
@@ -51,7 +51,7 @@ class ResourcesController < ApplicationController
   # POST /resources.xml
   def create
     @resource = Resource.new(params[:resource])
-    @resource.status = User.find_by_id(session[:user_id]) ? "final" : "draft"
+    @resource.status = User.find_by_id(session[:user_id]) ? "reviewed" : "draft"
 
     respond_to do |format|
       if @resource.save

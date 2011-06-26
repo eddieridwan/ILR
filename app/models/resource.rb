@@ -7,6 +7,6 @@ class Resource < ActiveRecord::Base
  
   validation_group :step1, :fields=>[:all]
 
-  named_scope :reviewed, :conditions => {:status => 'reviewed'}
+  named_scope :reviewed, :conditions => {:status => 'reviewed'}, :order => :title
   
 end
