@@ -26,3 +26,12 @@ config.action_mailer.smtp_settings = {
 }
 # Notify exceptions by email
 ExceptionNotifier.exception_recipients = %w(info@languagetechnologies.com)
+
+# http://code.alexreisner.com/articles/single-table-inheritance-in-rails.html
+  config.to_prepare do
+    %w[resource directory_resource exchange_resource].each do |c|
+      require_dependency File.join("app","models","#{c}.rb")
+    end
+  end
+ 
+

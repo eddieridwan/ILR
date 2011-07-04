@@ -34,7 +34,9 @@ class ResourcesController < ApplicationController
   # GET /resources/new
   # GET /resources/new.xml
   def new
+    puts "---- #{params[:resource][:type]}"
     @resource = Resource.new
+    @resource.type = Resource.child_classes.include?(params[:resource][:type]) ? params[:resource][:type] : "ExchangeResource"
 
     respond_to do |format|
       format.html # new.html.erb

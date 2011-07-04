@@ -1,7 +1,7 @@
 .title_bar
   %h1 
     %span Indonesian Language Resources
-    %span.button= button_to("Add a resource", new_resource_path)
+    %span.button= button_to "Add a resource", new_resource_path(:resource => {:type => "DirectoryResource"})
   
 
 %p
@@ -16,7 +16,7 @@
 
 
 #link-info
-  = button_to("Add a resource", new_resource_path)
+  = button_to "Add a resource", new_resource_path(:type => "DirectoryResource")
   %span 
     or contact <a href="mailto:info@languagetechnologies.com">info@languagetechnologies.com</a> 
     to suggest a resource to include in this directory.
