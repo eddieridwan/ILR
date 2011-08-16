@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110528071716) do
+ActiveRecord::Schema.define(:version => 20110816205831) do
 
   create_table "line_items", :force => true do |t|
     t.integer  "product_id",                                :null => false
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20110528071716) do
     t.string   "paypal_button_id"
     t.text     "product_details"
     t.string   "category"
+    t.boolean  "in_stock",                                       :default => true
   end
 
   create_table "resources", :force => true do |t|

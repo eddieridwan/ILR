@@ -8,6 +8,6 @@ class AddStatusAndTypeToResources < ActiveRecord::Migration
   def self.down
     remove_column :resources, :status
     remove_column :resources, :type
-    remove_column :resources, :string
+    remove_column :resources, :submitted_by
   end
 end

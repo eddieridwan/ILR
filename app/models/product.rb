@@ -1,11 +1,13 @@
 class Product < ActiveRecord::Base
   has_many :line_items
   
+  named_scope :in_stock, :conditions => { :in_stock => true }
+  
   def self.find_products_for_sale (category)
     if (category.present?)
-      find(:all, :conditions => {:category => category.downcase}, :order => "title" )
+      in_stock.find(:all, :conditions => {:category => category.downcase}, :order => "title" )
     else
-      find(:all, :order => "title")
+      in_stock.find(:all, :order => "title")
     end
   end
 
