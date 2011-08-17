@@ -1,0 +1,42 @@
+%h1 Editing product
+
+- form_for(@product) do |f|
+  = f.error_messages
+
+  %table
+    %tr
+      %th= f.label :image
+      %td= f.text_field :image
+    %tr
+      %th= f.label :productid
+      %td= f.text_field :productid
+    %tr
+      %th= f.label :title
+      %td= f.text_field :title
+    %tr
+      %th= f.label :publisher
+      %td= f.text_field :publisher
+    %tr
+      %th= f.label :price
+      %td= f.text_field :price
+    %tr
+      %th= f.label :paypal_button_id
+      %td= f.text_field :paypal_button_id
+    %tr
+      %th= f.label :description
+      %td= f.text_area :description
+    %tr
+      %th= f.label :product_details
+      %td= f.text_area :product_details
+    %tr
+      %th= f.label :category
+      %td= f.text_field :category
+    %tr
+      %th= f.label :in_stock
+      %td= f.check_box :in_stock
+  %p
+    = f.submit "Update"
+
+  = link_to 'Show', @product
+  %span |
+  = link_to 'Cancel', product_path
